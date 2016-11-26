@@ -48,6 +48,44 @@ namespace VN_Editor_KH16
 
             refresh();
             MainWindow.new_selected_el += refresh;
+<<<<<<< HEAD
+=======
+
+            Polygon slide_example = Shapes.slide;
+            slide_example.Fill = System.Windows.Media.Brushes.Salmon;
+            slide_example.HorizontalAlignment = HorizontalAlignment.Left;
+            slide_example.VerticalAlignment = VerticalAlignment.Top;
+            slide_example.Margin = new Thickness(50, 50, 0, 0);
+            test2.Children.Add(slide_example);
+
+            Polygon group_example = Shapes.group;
+            group_example.Fill = System.Windows.Media.Brushes.Indigo;
+            group_example.HorizontalAlignment = HorizontalAlignment.Left;
+            group_example.VerticalAlignment = VerticalAlignment.Top;
+            group_example.Margin = new Thickness(50, 100, 0, 0);
+            group_example.MouseMove += group_MouseMove;
+            test2.Children.Add(group_example);
+
+            Polygon loud_example = Shapes.loud_decision;
+            loud_example.Fill = System.Windows.Media.Brushes.PaleVioletRed;
+            loud_example.HorizontalAlignment = HorizontalAlignment.Left;
+            loud_example.VerticalAlignment = VerticalAlignment.Top;
+            loud_example.Margin = new Thickness(50, 150, 0, 0);
+            test2.Children.Add(loud_example);
+
+            Polygon end_example = Shapes.end;
+            end_example.Fill = System.Windows.Media.Brushes.PaleVioletRed;
+            end_example.HorizontalAlignment = HorizontalAlignment.Left;
+            end_example.VerticalAlignment = VerticalAlignment.Top;
+            end_example.Margin = new Thickness(50, 200, 0, 0);
+            test2.Children.Add(end_example);
+        }
+
+        public void group_MouseMove(object sender, EventArgs args)
+        {
+            
+            return;
+>>>>>>> 0e97474981c17a7dbab9580b36171e7fea4df5a4
         }
 
         public void refresh ()

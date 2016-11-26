@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Windows.Controls;
 using System.Windows;
 
 namespace VN_Editor_KH16
 {
-    public class Shapes
+    public class Shapes : UserControl
     {
         public static Polygon loud_decision { get; set; } = new Polygon();
         public static Polygon group { get; set; } = new Polygon();
