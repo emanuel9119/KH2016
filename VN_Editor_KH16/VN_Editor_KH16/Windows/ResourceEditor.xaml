@@ -1,0 +1,30 @@
+﻿<local:Child_Window x:Class="VN_Editor_KH16.ResourceEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VN_Editor_KH16"
+        mc:Ignorable="d"
+        Title="Resource Editor" Height="300" Width="300"
+        Closing="Window_Closing"
+        Activated="Window_Active"
+        Deactivated="Window_Deactive"
+        LocationChanged="Window_Moved">
+    <Grid>
+        <Button Content="Add to window" Click="Window_Dropped" Margin="0,0,-0.4,0" Height="23" VerticalAlignment="Top"/>
+        <TreeView Margin="0,28,-0.4,0.4">
+            <TreeViewItem Header="Settings">
+                <TreeViewItem.ItemTemplate>
+                    <DataTemplate>
+                        <ListBox>
+                            
+                        </ListBox>
+                    </DataTemplate>
+                </TreeViewItem.ItemTemplate>
+            </TreeViewItem>
+            <TreeViewItem Header="Characters">
+
+            </TreeViewItem>
+        </TreeView>
+    </Grid>
+</local:Child_Window>

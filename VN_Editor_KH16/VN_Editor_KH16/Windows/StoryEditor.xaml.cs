@@ -28,7 +28,7 @@ namespace VN_Editor_KH16
             is_docked = false;
             safe_destruction = false;
 
-            current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker ="Speaker1", dialogue="first dial", dev_note="needs more dio"});
+            current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker1", dialogue="first dial", dev_note="needs more dio"});
             current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker2", dialogue = "wryyyyy", dev_note = "dio" });
             current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker1", dialogue = "3 dial", dev_note = "needs more dio" });
             current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker2", dialogue = "4", dev_note = "dio" });

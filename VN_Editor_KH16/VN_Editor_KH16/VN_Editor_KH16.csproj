@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="BackEnd\Char_Set\Asset.cs" />
     <Compile Include="BackEnd\Char_Set\Tagged_Image.cs" />
+    <Compile Include="Windows\ResourceEditor.xaml.cs">
+      <DependentUpon>ResourceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DataEditor.xaml.cs">
       <DependentUpon>DataEditor.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Windows\ResourceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\DataEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
