@@ -37,6 +37,7 @@ namespace VN_Editor_KH16
         {
             InitializeComponent();
             docking_system = new WindowManager.docking_system();
+            Shapes s = new Shapes();
         }
         
         private void ResMenuClicked(object sender, EventArgs e)

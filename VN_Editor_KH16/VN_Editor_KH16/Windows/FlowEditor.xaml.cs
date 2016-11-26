@@ -48,6 +48,10 @@ namespace VN_Editor_KH16
 
             refresh();
             MainWindow.new_selected_el += refresh;
+
+            Polygon slide_example = Shapes.slide;
+            slide_example.Fill = System.Windows.Media.Brushes.Blue;
+            test2.Children.Add(Shapes.slide);
         }
 
         public void refresh ()

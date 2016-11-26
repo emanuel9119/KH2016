@@ -15,7 +15,7 @@ namespace VN_Editor_KH16
         public static Polygon slide { get; set; } = new Polygon();
         public static Polygon end { get; set; } = new Polygon();
         
-        Shapes ()
+        public Shapes ()
         {
             for (int i = 0; i < 40; i++)
                 end.Points.Add(new Point(10 * Math.Cos(2 * Math.PI * i / 40), 10 * Math.Sin(2 * Math.PI * i / 40)));
