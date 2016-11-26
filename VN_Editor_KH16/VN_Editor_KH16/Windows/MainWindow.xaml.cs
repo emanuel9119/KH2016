@@ -46,6 +46,25 @@ namespace VN_Editor_KH16
             cw.Show();
         }
 
+        private void FlowEditorClicked(object sender, EventArgs e)
+        {
+            FlowEditor cw = new FlowEditor();
+            cw.ShowInTaskbar = false;
+            cw.ResizeMode = ResizeMode.NoResize;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
+        }
+
+
+        private void DataEditorClicked(object sender, EventArgs e)
+        {
+            DataEditor cw = new DataEditor();
+            cw.ShowInTaskbar = false;
+            cw.ResizeMode = ResizeMode.NoResize;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
+        }
+
         private void StoryHierClicked(object sender, EventArgs e)
         {
             TreeViewer cw = new TreeViewer();
