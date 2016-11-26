@@ -51,3 +51,5 @@ C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\FlowEditor.g.cs
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\DataEditor.baml
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\FlowEditor.baml
+C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\ResourceEditor.g.cs
+C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\ResourceEditor.baml

@@ -12,7 +12,7 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_Windows">
-                    <MenuItem Header="_Animation Editor" Click="AnimMenuClicked"/>
+                    <MenuItem Header="_Resource Editor" Click="ResMenuClicked"/>
                     <MenuItem Header="_Story Editor" Click="StoryMenuClicked"/>
                     <MenuItem Header="_Flow Editor" Click="FlowEditorClicked"/>
                     <MenuItem Header="_Data Editor" Click="DataEditorClicked"/>

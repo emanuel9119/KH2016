@@ -39,9 +39,9 @@ namespace VN_Editor_KH16
             docking_system = new WindowManager.docking_system();
         }
         
-        private void AnimMenuClicked(object sender, EventArgs e)
+        private void ResMenuClicked(object sender, EventArgs e)
         {
-            AnimationEditor cw = new AnimationEditor();
+            ResourceEditor cw = new ResourceEditor();
             cw.ShowInTaskbar = false;
             cw.ResizeMode = ResizeMode.NoResize;
             cw.Owner = Application.Current.MainWindow;
