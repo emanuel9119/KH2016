@@ -10,7 +10,15 @@
         Activated="Window_Active"
         Deactivated="Window_Deactive"
         LocationChanged="Window_Moved">
-    <Grid>
+    <Grid RenderTransformOrigin="0.417,0.279">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <Button Content="Add to window" Click="Window_Dropped" Margin="0,0,-0.4,0" Height="58" VerticalAlignment="Top"/>
         <Canvas Name="FlowCanv" Margin="0,57,0,0" ></Canvas>
     </Grid>
