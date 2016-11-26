@@ -22,15 +22,19 @@ namespace VN_Editor_KH16
     {
         public delegate void callin();
         public static event callin new_selected_el;
+        public static event callin new_selected_as;
 
         public static VN_Editor_KH16.WindowManager.docking_system docking_system;
 
         public static BackEnd.Flow_Elements.Generic_Element selected;
+        public static BackEnd.Char_Set.Asset selected_ass;
+        public static bool use_ass;
 
         public static void change_selected(BackEnd.Flow_Elements.Generic_Element el)
         {
             selected = el;
             new_selected_el();
+            use_ass = false;
         }
 
         public MainWindow()

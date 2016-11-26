@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace VN_Editor_KH16.BackEnd.Char_Set
 {
-    abstract class Asset
+    public abstract class Asset
     {
         public string name { get; set; }
         public List<Tagged_Image> images { get; set; }

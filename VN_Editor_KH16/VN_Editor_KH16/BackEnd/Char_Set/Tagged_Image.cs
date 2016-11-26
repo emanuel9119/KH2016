@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace VN_Editor_KH16.BackEnd.Char_Set
 {
-    class Tagged_Image
+    public class Tagged_Image
     {
         Image img;
         List<string> tags;

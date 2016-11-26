@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VN_Editor_KH16.BackEnd.Flow_Elements;
 
 namespace VN_Editor_KH16
 {
@@ -24,6 +25,17 @@ namespace VN_Editor_KH16
             InitializeComponent();
             is_docked = false;
             safe_destruction = false;
+
+            MainWindow.new_selected_el += load_el;
+        }
+
+        public void load_el ()
+        {
+            if (MainWindow.selected.get_el_type() == 1)
+            {
+                Speaker_Name.DataContext = ((Slide_Element)MainWindow.selected).speaker;
+                Speaker_Dialogue.DataContext = ((Slide_Element)MainWindow.selected).dialogue;
+            }
         }
     }
 }
