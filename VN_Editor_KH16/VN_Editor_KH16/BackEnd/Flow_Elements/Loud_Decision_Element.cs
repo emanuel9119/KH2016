@@ -12,6 +12,20 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
     public class Loud_Decision_Element : Generic_Element
     {
         public List<Choice_Desc_Pair> outputs;
+        public int _output_count = 0;
+        public int output_count {
+            get { return _output_count; }
+            set { _output_count = value;
+                if (outputs.Count > _output_count)
+                {
+                    outputs.RemoveRange(_output_count, outputs.Count - _output_count);
+                }else
+                {
+                    for (int i = 0; i < _output_count - outputs.Count; i++)
+                    outputs.Add(null);
+                }
+            }
+        }
 
         public Loud_Decision_Element()
         {
