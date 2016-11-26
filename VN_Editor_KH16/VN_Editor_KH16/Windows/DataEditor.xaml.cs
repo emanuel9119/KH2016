@@ -20,6 +20,9 @@ namespace VN_Editor_KH16
     /// </summary>
     public partial class DataEditor : Child_Window
     {
+        List<FrameworkElement> slide_forms = new List<FrameworkElement>();
+        List<FrameworkElement> decision_forms = new List<FrameworkElement>();
+
         public DataEditor()
         {
             InitializeComponent();
@@ -27,14 +30,41 @@ namespace VN_Editor_KH16
             safe_destruction = false;
 
             MainWindow.new_selected_el += load_el;
+
+            slide_forms.Add(Speaker_Name);
+            slide_forms.Add(Speaker_Dialogue);
+            slide_forms.Add(Character_List);
+            slide_forms.Add(Scene_Previewer);
+            slide_forms.Add(Slide_Grid);
+
+            decision_forms.Add(Choice_Enumerator);
+
+            close_all();
+        }
+
+        public void close_all ()
+        {
+            decision_forms.ForEach(f => { f.Focus(); });
+            decision_forms.ForEach(f => { f.Visibility = Visibility.Collapsed; });
+
+            slide_forms.ForEach(f => { f.Focus(); });
+            slide_forms.ForEach(f => { f.Visibility = Visibility.Collapsed; });
         }
 
         public void load_el ()
         {
+            close_all();
+
             if (MainWindow.selected.get_el_type() == 1)
             {
-                Speaker_Name.DataContext = ((Slide_Element)MainWindow.selected).speaker;
-                Speaker_Dialogue.DataContext = ((Slide_Element)MainWindow.selected).dialogue;
+                slide_forms.ForEach(f => { f.Visibility = Visibility.Visible; });
+                Speaker_Name.DataContext = ((Slide_Element)MainWindow.selected);
+                Speaker_Dialogue.DataContext = ((Slide_Element)MainWindow.selected);
+            }
+            if (MainWindow.selected.get_el_type() == 2)
+            {
+                decision_forms.ForEach(f => { f.Visibility = Visibility.Visible; });
+                Choice_Enumerator.DataContext = ((Loud_Decision_Element)MainWindow.selected);
             }
         }
     }
