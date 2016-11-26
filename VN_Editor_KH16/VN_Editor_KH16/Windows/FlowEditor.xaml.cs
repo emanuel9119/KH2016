@@ -28,25 +28,6 @@ namespace VN_Editor_KH16
             is_docked = false;
             safe_destruction = false;
 
-            header.add_member(new Slide_Element() { embedding_location = new Point (50,50), speaker="Mary", dialogue="Oi cunt" });
-            header.add_member(new Loud_Decision_Element() { embedding_location = new Point(50, 100) });
-            header.add_member(new Slide_Element() { embedding_location = new Point(50, 150), speaker = "Jane", dialogue = "Yeah what" });
-            header.add_member(new End_Element  () { embedding_location = new Point(50, 200) });
-            header.add_member(new Slide_Element() { embedding_location = new Point(100, 150), speaker = "Mary", dialogue = "I fucked ya mum" });
-            header.add_member(new Slide_Element() { embedding_location = new Point(100, 200), speaker = "Jane", dialogue = "She's dead ya dumb bitch" });
-            header.add_member(new End_Element  () { embedding_location = new Point(100, 250) });
-            header.add_member(new Slide_Element() { embedding_location = new Point(200, 200) });
-            header.add_member(new Slide_Element() { embedding_location = new Point(250, 250) });
-
-            header.interior_head = header.members[0];
-            ((Slide_Element)header.members[0]).output = header.members[1];
-            ((Loud_Decision_Element)header.members[1]).output_count = 2;
-            ((Loud_Decision_Element)header.members[1]).outputs[0] = new Choice_Desc_Pair() { choice = header.members[2], owner = ((Loud_Decision_Element)header.members[1])};
-            ((Loud_Decision_Element)header.members[1]).outputs[1] = new Choice_Desc_Pair() { choice = header.members[4], owner = ((Loud_Decision_Element)header.members[1])};
-            ((Slide_Element)header.members[2]).output = header.members[3];
-            ((Slide_Element)header.members[4]).output = header.members[5];
-            ((Slide_Element)header.members[5]).output = header.members[6];
-
             refresh();
             MainWindow.new_selected_el += refresh;
 
@@ -202,8 +183,37 @@ namespace VN_Editor_KH16
                 DataObject data = new DataObject();
                 data.SetData("String", "rw_loud");
                 data.SetData("Object", sender);
+                data.SetData("Wind", this);
 
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                try
+                {
+                    DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                }
+                catch
+                {
+                    refresh();
+                }
+            }
+        }
+
+        public void rw_slide_MouseMove(object sender, MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataObject data = new DataObject();
+                data.SetData("String", "rw_slide");
+                data.SetData("Object", sender);
+                data.SetData("Wind", this);
+
+                try
+                {
+                    DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                }
+                catch
+                {
+                    refresh();
+                }
             }
         }
 

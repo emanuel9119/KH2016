@@ -20,23 +20,23 @@ namespace VN_Editor_KH16
     public partial class StoryEditor : Child_Window
     {
         List<BackEnd.Flow_Elements.Slide_Element> current_slides = new List<BackEnd.Flow_Elements.Slide_Element>();
-
-
+        
         public StoryEditor()
         {
             InitializeComponent();
             is_docked = false;
             safe_destruction = false;
 
-            current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker1", dialogue="first dial", dev_note="needs more dio"});
-            current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker2", dialogue = "wryyyyy", dev_note = "dio" });
-            current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker1", dialogue = "3 dial", dev_note = "needs more dio" });
-            current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker2", dialogue = "4", dev_note = "dio" });
-            current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker1", dialogue = "5 dial", dev_note = "needs more dio" });
-            current_slides.Add(new BackEnd.Flow_Elements.Slide_Element() { speaker = "Speaker2", dialogue = "77", dev_note = "dio" });
-            
-            
+            MainWindow.new_selected_el += check;
             Story_List.ItemsSource = current_slides;
+        }
+
+        void check()
+        {
+            if (MainWindow.selected.get_el_type() == 1) {
+                current_slides = ((BackEnd.Flow_Elements.Slide_Element)MainWindow.selected).get_streak();
+                Story_List.ItemsSource = current_slides;
+            }
         }
     }
 }

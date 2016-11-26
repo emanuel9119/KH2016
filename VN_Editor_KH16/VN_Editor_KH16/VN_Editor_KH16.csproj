@@ -81,9 +81,6 @@
     <Compile Include="WindowManager\docking_partition.cs" />
     <Compile Include="WindowManager\docking_system.cs" />
     <Compile Include="WindowManager\docking_window.cs" />
-    <Compile Include="Windows\TreeViewer.xaml.cs">
-      <DependentUpon>TreeViewer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\StoryEditor.xaml.cs">
       <DependentUpon>StoryEditor.xaml</DependentUpon>
     </Compile>
@@ -133,10 +130,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\FlowEditor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\TreeViewer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
