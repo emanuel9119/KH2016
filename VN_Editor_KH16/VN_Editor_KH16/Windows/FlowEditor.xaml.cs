@@ -20,11 +20,20 @@ namespace VN_Editor_KH16
     /// </summary>
     public partial class FlowEditor : Child_Window
     {
+        Group_Element header;
+
         public FlowEditor()
         {
             InitializeComponent();
             is_docked = false;
             safe_destruction = false;
+
+            header.interior_head = new Slide_Element();
+            ((Slide_Element)header.interior_head).output = new Loud_Decision_Element();
+            ((Loud_Decision_Element)((Slide_Element)header.interior_head).output).outputs.Add(new Choice_Desc_Pair() { choice = new Slide_Element() { output = new Slide_Element() } });
+            ((Loud_Decision_Element)((Slide_Element)header.interior_head).output).outputs.Add(new Choice_Desc_Pair() { choice = new Slide_Element() });
+
+            header.print(FlowCanv);
         }
     }
 }
