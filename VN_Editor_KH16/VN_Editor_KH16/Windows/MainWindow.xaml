@@ -13,6 +13,7 @@
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_Windows">
                     <MenuItem Header="_Animation Editor" Click="AnimMenuClicked"/>
+                    <MenuItem Header="_Story Editor" Click="StoryMenuClicked"/>
                 </MenuItem>
                 <MenuItem Header="_Layout">
                     <MenuItem Header="_Balanced" Click="Layout_Balanced"/>

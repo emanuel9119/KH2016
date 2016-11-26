@@ -9,6 +9,9 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
     class Slide_Element : Generic_Element
     {
+<<<<<<< HEAD
+        public string speaker { get; set; }
+=======
         Generic_Element output;
 
         Slide_Element()
@@ -57,6 +60,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         }
 
         public string speaker  { get; set; }
+>>>>>>> c76850a2310b1c6737821ef314c87f37eaca490e
         public string dialogue { get; set; }
         public string dev_note { get; set; }
     }

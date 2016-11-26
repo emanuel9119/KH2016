@@ -36,7 +36,16 @@ namespace VN_Editor_KH16
             cw.Owner = Application.Current.MainWindow;
             cw.Show();
         }
-        
+
+        private void StoryMenuClicked(object sender, EventArgs e)
+        {
+            StoryEditor cw = new StoryEditor();
+            cw.ShowInTaskbar = false;
+            cw.ResizeMode = ResizeMode.NoResize;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
+        }
+
         public void Layout_Balanced(object sender, EventArgs e)
         {
             docking_system.clear();

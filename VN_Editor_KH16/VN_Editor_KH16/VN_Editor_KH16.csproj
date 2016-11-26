@@ -68,6 +68,9 @@
     <Compile Include="WindowManager\docking_partition.cs" />
     <Compile Include="WindowManager\docking_system.cs" />
     <Compile Include="WindowManager\docking_window.cs" />
+    <Compile Include="Windows\StoryEditor.xaml.cs">
+      <DependentUpon>StoryEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AnimationEditor.xaml.cs">
       <DependentUpon>AnimationEditor.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Windows\StoryEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\AnimationEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
