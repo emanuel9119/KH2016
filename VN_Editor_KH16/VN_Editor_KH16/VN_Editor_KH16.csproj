@@ -59,6 +59,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BackEnd\Flow_Elements\Generic_Element.cs" />
+    <Compile Include="BackEnd\Flow_Elements\Slide_Element.cs" />
     <Compile Include="WindowManager\docking_element.cs" />
     <Compile Include="WindowManager\docking_partition.cs" />
     <Compile Include="WindowManager\docking_system.cs" />
