@@ -11,12 +11,12 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
     {
         public List<Choice_Desc_Pair> outputs;
 
-        Loud_Decision_Element()
+        public Loud_Decision_Element()
         {
             outputs = new List<Choice_Desc_Pair>();
         }
 
-        Loud_Decision_Element(Point loc)
+        public Loud_Decision_Element(Point loc)
         {
             embedding_location = loc;
         }

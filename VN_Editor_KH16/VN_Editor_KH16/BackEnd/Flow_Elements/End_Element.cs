@@ -12,12 +12,12 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         Group_Element master;
         int End_El_Num;
 
-        End_Element()
+        public End_Element()
         {
             master = null;
         }
 
-        End_Element(Point loc)
+        public End_Element(Point loc)
         {
             embedding_location = loc;
         }

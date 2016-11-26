@@ -13,13 +13,13 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         List<Generic_Element> outputs;
         Generic_Element interior_head;
 
-        Group_Element()
+        public Group_Element()
         {
             outputs = new List<Generic_Element>();
             interior_head = null;
         }
 
-        Group_Element(Point loc)
+        public Group_Element(Point loc)
         {
             embedding_location = loc;
         }
