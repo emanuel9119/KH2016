@@ -15,7 +15,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         public int _output_count = 1;
         public int output_count {
             get { return _output_count; }
-            set { _output_count = value;
+            set { _output_count = value % 10;
                 if (outputs.Count > _output_count)
                 {
                     outputs.RemoveRange(_output_count, outputs.Count - _output_count);

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 using VN_Editor_KH16.BackEnd.Flow_Elements;
 
 namespace VN_Editor_KH16
@@ -38,6 +39,7 @@ namespace VN_Editor_KH16
             slide_forms.Add(Slide_Grid);
 
             decision_forms.Add(Choice_Enumerator);
+            decision_forms.Add(Choice_number);
 
             close_all();
         }
@@ -49,6 +51,14 @@ namespace VN_Editor_KH16
 
             slide_forms.ForEach(f => { f.Focus(); });
             slide_forms.ForEach(f => { f.Visibility = Visibility.Collapsed; });
+        }
+
+        public void check_if_num (object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex num_check = new Regex("[^123]");
+            e.Handled = num_check.IsMatch(e.Text);
+
+            base.OnPreviewTextInput(e);
         }
 
         public void load_el ()
@@ -65,6 +75,7 @@ namespace VN_Editor_KH16
             {
                 decision_forms.ForEach(f => { f.Visibility = Visibility.Visible; });
                 Choice_Enumerator.ItemsSource = ((Loud_Decision_Element)MainWindow.selected).outputs;
+                Choice_number.DataContext = ((Loud_Decision_Element)MainWindow.selected);
             }
         }
     }

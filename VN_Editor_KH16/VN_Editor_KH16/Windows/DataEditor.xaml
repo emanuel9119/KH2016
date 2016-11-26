@@ -32,7 +32,7 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBox Name="Choice_number"/>
+                <TextBox Name="Choice_number" PreviewTextInput="check_if_num" Text="{Binding output_count, Mode=TwoWay}"/>
                 <ListBox Grid.Row="1" Name="Choice_Enumerator">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
