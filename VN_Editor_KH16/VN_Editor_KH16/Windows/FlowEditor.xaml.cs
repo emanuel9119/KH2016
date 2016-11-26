@@ -28,10 +28,23 @@ namespace VN_Editor_KH16
             is_docked = false;
             safe_destruction = false;
 
-            header.interior_head = new Slide_Element() { embedding_location = new Point(50, 50) };
-            ((Slide_Element)header.interior_head).output = new Loud_Decision_Element() { embedding_location = new Point(50, 100) };
-            ((Loud_Decision_Element)((Slide_Element)header.interior_head).output).outputs.Add(new Choice_Desc_Pair() { choice = new Slide_Element() { output = new Slide_Element() { embedding_location = new Point(50, 200) } , embedding_location = new Point(50, 150) } });
-            ((Loud_Decision_Element)((Slide_Element)header.interior_head).output).outputs.Add(new Choice_Desc_Pair() { choice = new Slide_Element() { embedding_location = new Point(100, 150) } });
+            header.add_member(new Slide_Element() { embedding_location = new Point (50,50) });
+            header.add_member(new Loud_Decision_Element() { embedding_location = new Point(50, 100) });
+            header.add_member(new Slide_Element() { embedding_location = new Point(50, 150) });
+            header.add_member(new End_Element() { embedding_location = new Point(50, 200) });
+            header.add_member(new Slide_Element() { embedding_location = new Point(100, 150) });
+            header.add_member(new Slide_Element() { embedding_location = new Point(100, 200) });
+            header.add_member(new End_Element() { embedding_location = new Point(100, 250) });
+            header.add_member(new Slide_Element() { embedding_location = new Point(200, 200) });
+            header.add_member(new Slide_Element() { embedding_location = new Point(250, 250) });
+
+            header.interior_head = header.members[0];
+            ((Slide_Element)header.members[0]).output = header.members[1];
+            ((Loud_Decision_Element)header.members[1]).outputs.Add(new Choice_Desc_Pair() { choice = header.members[2] });
+            ((Loud_Decision_Element)header.members[1]).outputs.Add(new Choice_Desc_Pair() { choice = header.members[4] });
+            ((Slide_Element)header.members[2]).output = header.members[3];
+            ((Slide_Element)header.members[4]).output = header.members[5];
+            ((Slide_Element)header.members[5]).output = header.members[6];
 
             refresh();
             MainWindow.new_selected_el += refresh;

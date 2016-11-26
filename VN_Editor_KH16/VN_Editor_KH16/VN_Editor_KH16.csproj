@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BackEnd\Char_Set\Asset.cs" />
+    <Compile Include="BackEnd\Char_Set\Tagged_Image.cs" />
     <Compile Include="Windows\DataEditor.xaml.cs">
       <DependentUpon>DataEditor.xaml</DependentUpon>
     </Compile>

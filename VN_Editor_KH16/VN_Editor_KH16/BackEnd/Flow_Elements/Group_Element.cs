@@ -87,11 +87,16 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             return returnable;
         }
 
+        public void add_member (Generic_Element new_el)
+        {
+            members.Add(new_el);
+        }
+
         public Canvas print (Canvas canvas)
         {
             canvas.Children.Clear();
-            for_each_inside(d => d.print_cn(ref canvas));
-            for_each_inside(d => d.print_el(ref canvas));
+            members.ForEach(d => d.print_cn(ref canvas));
+            members.ForEach(d => d.print_el(ref canvas));
             return canvas;
         }
 
