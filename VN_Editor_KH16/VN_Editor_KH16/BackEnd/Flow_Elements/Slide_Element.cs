@@ -8,7 +8,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
     class Slide_Element : Generic_Element
     {
-        public string speaker  { get; set; }
+        public string speaker { get; set; }
         public string dialogue { get; set; }
         public string dev_note { get; set; }
     }
