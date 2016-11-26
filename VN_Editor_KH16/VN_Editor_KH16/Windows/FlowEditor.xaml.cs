@@ -79,10 +79,45 @@ namespace VN_Editor_KH16
             test2.Children.Add(end_example);
         }
 
-        public void group_MouseMove(object sender, EventArgs args)
+        //When you mouse over group object
+        public void group_MouseMove(object sender, MouseEventArgs e)
         {
-            
-            return;
+            base.OnMouseMove(e);
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataObject data = new DataObject();
+                data.SetData("String", "group");
+                data.SetData("Object", this);
+
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+            }
+        }
+
+
+        //When you drag object to other panel
+        private void panel_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.Move;
+        }
+
+        // When you drop said obj
+        private void panel_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Handled == false)
+            {
+                string bar = (string)e.Data.GetData("String");
+                switch (bar)
+                {
+                    case "group":
+                        Group_Element foo = new Group_Element();
+                        foo.embedding_location = e.GetPosition(FlowCanv);
+                        header.add_member(foo);
+                        refresh();
+                        break;
+                }
+                Panel _panel = (Panel)sender;
+                e.Effects = DragDropEffects.Move;
+            }
         }
 
         public void refresh ()
