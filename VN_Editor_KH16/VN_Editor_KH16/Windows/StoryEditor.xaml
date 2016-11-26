@@ -11,6 +11,9 @@
         Deactivated="Window_Deactive"
         LocationChanged="Window_Moved">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
@@ -25,7 +28,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBox Grid.Row="0" Text="{Binding speaker}"/>
-                        <TextBox Grid.Row="1" Text="{Binding dialogue}"/>
+                        <TextBox Grid.Row="1" MinWidth="50" HorizontalAlignment="Stretch" Text="{Binding dialogue}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

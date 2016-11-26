@@ -11,13 +11,37 @@
         Deactivated="Window_Deactive"
         LocationChanged="Window_Moved">
     <Grid>
-        <Button Content="Add to window" Click="Window_Dropped" Margin="0,0,-0.4,0" Height="23" VerticalAlignment="Top"/>
-        <TreeView Margin="0,28,-0.4,0.4">
-            <TreeViewItem Header="Locations">
-            </TreeViewItem>
-            <TreeViewItem Name="Characters" Header="Characters">
-                
-            </TreeViewItem>
-        </TreeView>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Add to window" Click="Window_Dropped" />
+        
+        <Button Grid.Row="1" HorizontalAlignment="Stretch" Content="Add Character"/>
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Content="Add Setting" />
+
+        <ListBox Name="CharList" Grid.Row="2" Grid.ColumnSpan="2" IsMouseCapturedChanged="CharList_IsMouseCapturedChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Grid.Row="0" Text="{Binding test}"/>
+                        <TextBlock MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Grid.Row="1" Text="{Binding test2}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Grid.Row="3" Grid.ColumnSpan="2">
+
+        </ListBox>
     </Grid>
 </local:Child_Window>
