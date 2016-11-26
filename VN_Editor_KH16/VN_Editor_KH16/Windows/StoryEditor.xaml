@@ -11,8 +11,12 @@
         Deactivated="Window_Deactive"
         LocationChanged="Window_Moved">
     <Grid>
-        <Button Content="Add to window" Click="Window_Dropped" Margin="69,35,109,206"/>
-        <ListBox Name="Story_List" VerticalContentAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="Add to window" Click="Window_Dropped"/>
+        <ListBox Grid.Row="1" Name="Story_List" VerticalContentAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

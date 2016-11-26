@@ -28,12 +28,12 @@ namespace VN_Editor_KH16
             is_docked = false;
             safe_destruction = false;
 
-            header.add_member(new Slide_Element() { embedding_location = new Point (50,50) });
+            header.add_member(new Slide_Element() { embedding_location = new Point (50,50), speaker="Mary", dialogue="Oi cunt" });
             header.add_member(new Loud_Decision_Element() { embedding_location = new Point(50, 100) });
-            header.add_member(new Slide_Element() { embedding_location = new Point(50, 150) });
+            header.add_member(new Slide_Element() { embedding_location = new Point(50, 150), speaker = "Jane", dialogue = "Yeah what" });
             header.add_member(new End_Element() { embedding_location = new Point(50, 200) });
-            header.add_member(new Slide_Element() { embedding_location = new Point(100, 150) });
-            header.add_member(new Slide_Element() { embedding_location = new Point(100, 200) });
+            header.add_member(new Slide_Element() { embedding_location = new Point(100, 150), speaker = "Mary", dialogue = "I fucked ya mum" });
+            header.add_member(new Slide_Element() { embedding_location = new Point(100, 200), speaker = "Jane", dialogue = "She's dead ya dumb bitch" });
             header.add_member(new End_Element() { embedding_location = new Point(100, 250) });
             header.add_member(new Slide_Element() { embedding_location = new Point(200, 200) });
             header.add_member(new Slide_Element() { embedding_location = new Point(250, 250) });

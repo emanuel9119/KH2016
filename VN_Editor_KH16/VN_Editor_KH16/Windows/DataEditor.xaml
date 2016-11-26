@@ -11,6 +11,62 @@
         Deactivated="Window_Deactive"
         LocationChanged="Window_Moved">
     <Grid>
-        <Button Content="Add to window" Click="Window_Dropped" Margin="0,0,0,205"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Add to window" Click="Window_Dropped"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Canvas Grid.Row="0" Name="Scene_Previewer"/>
+            <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox Name="Choice_number"/>
+                <ListBox Grid.Row="1" Name="Choice_Enumerator"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ListBox Name="Character_List" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBox Grid.Row="0" Text="{Binding desc}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Grid Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Name="Slide_Grid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="Speaker_Name" Text="{Binding speaker, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0"/>
+                    <TextBox Name="Speaker_Dialogue" Text="{Binding dialogue, Mode=TwoWay}" Grid.Row="1"/>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </local:Child_Window>

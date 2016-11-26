@@ -20,7 +20,7 @@ namespace VN_Editor_KH16
     /// </summary>
     public partial class ResourceEditor : Child_Window
     {
-        List<Character> characters = new List<Character>();
+        static public List<Character> characters = new List<Character>();
 
         public ResourceEditor()
         {

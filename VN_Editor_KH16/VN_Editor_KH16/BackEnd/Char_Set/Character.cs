@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace VN_Editor_KH16.BackEnd.Char_Set
 {
-    class Character : Asset
+    public class Character : Asset
     {
         public override void print(Canvas canvas, List<string> tags)
         {
