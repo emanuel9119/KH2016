@@ -13,12 +13,10 @@
     <Grid>
         <Button Content="Add to window" Click="Window_Dropped" Margin="0,0,-0.4,0" Height="23" VerticalAlignment="Top"/>
         <TreeView Margin="0,28,-0.4,0.4">
-            <TreeViewItem Header="Settings">
+            <TreeViewItem Header="Location">
                 <TreeViewItem.ItemTemplate>
                     <DataTemplate>
-                        <ListBox>
-                            
-                        </ListBox>
+                        <TreeViewItem Header="{Binding name}"/>
                     </DataTemplate>
                 </TreeViewItem.ItemTemplate>
             </TreeViewItem>
