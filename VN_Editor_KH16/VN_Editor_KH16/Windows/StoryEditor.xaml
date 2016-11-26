@@ -28,7 +28,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBox Grid.Row="0" Text="{Binding speaker}"/>
-                        <TextBox Grid.Row="1" MinWidth="50" HorizontalAlignment="Stretch" Text="{Binding dialogue}"/>
+                        <TextBox Grid.Row="1" MinWidth="300" HorizontalAlignment="Stretch" Text="{Binding dialogue}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
