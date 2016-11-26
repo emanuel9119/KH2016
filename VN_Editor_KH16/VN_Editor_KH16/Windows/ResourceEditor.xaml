@@ -34,8 +34,8 @@
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
-                        <TextBlock MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Grid.Row="0" Text="{Binding test}"/>
-                        <TextBlock MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Grid.Row="1" Text="{Binding test2}"/>
+                        <TextBlock Grid.Row="0" Text="{Binding test}"/>
+                        <TextBlock Grid.Row="1" Text="{Binding test2}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

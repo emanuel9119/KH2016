@@ -26,12 +26,14 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                     for (int i = 0; i < wall; i++)
                     outputs.Add(new Choice_Desc_Pair() { owner = this, desc = "", choice = null });
                 }
+                curr_king.refresh();
             }
         }
 
         public Loud_Decision_Element()
         {
             outputs = new List<Choice_Desc_Pair>();
+            inputs = new List<Generic_Element>();
             outputs.Add(new Choice_Desc_Pair() { owner = this, desc = "", choice = null });
         }
 
@@ -39,6 +41,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         {
             embedding_location = loc;
             outputs = new List<Choice_Desc_Pair>();
+            inputs = new List<Generic_Element>();
             outputs.Add(new Choice_Desc_Pair() { owner = this, desc = "", choice = null });
         }
 
@@ -193,6 +196,9 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         {
             for (int i = 0; i < outputs.Count; i++)
            {
+                if (outputs[i].choice == null)
+                    continue;
+
                Line ln = new Line();
                ln.Stroke = System.Windows.Media.Brushes.Black;
 

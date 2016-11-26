@@ -33,6 +33,8 @@ namespace VN_Editor_KH16
 
         void check()
         {
+            Story_List.Focusable = false;
+            Story_List.Focusable = true;
             if (MainWindow.selected.get_el_type() == 1) {
                 current_slides = ((BackEnd.Flow_Elements.Slide_Element)MainWindow.selected).get_streak();
                 Story_List.ItemsSource = current_slides;
