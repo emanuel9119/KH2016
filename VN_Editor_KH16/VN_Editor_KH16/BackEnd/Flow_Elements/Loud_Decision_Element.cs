@@ -79,14 +79,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
             pic.MouseLeftButtonDown += new_selected;
 
-            Polygon bal = new Polygon();
-
-            if (this == MainWindow.selected)
-                bal.Fill = System.Windows.Media.Brushes.LightYellow;
-            else
-                bal.Fill = System.Windows.Media.Brushes.LightCyan;
-
-            bal.Stroke = System.Windows.Media.Brushes.Black;
+            
            
 
             if (curr_king != null)
@@ -95,17 +88,71 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             }
 
             canvas.Children.Add(pic);
+            
+            Polygon bal = new Polygon();
 
+            if (this == MainWindow.selected)
+                bal.Fill = System.Windows.Media.Brushes.LightYellow;
+            else
+                bal.Fill = System.Windows.Media.Brushes.LightCyan;
+
+            bal.Stroke = System.Windows.Media.Brushes.Black;
             switch (_output_count)
             {
                 case 1:
                     for (int i = 0; i < 40; i++)
                         bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40), embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40) + 15));
                     canvas.Children.Add(bal);
+                    
                     break;
                 case 2:
+                    for (int i = 0; i < 40; i++)
+                        bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40)+7.5, embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40) + 7.5));
+                    canvas.Children.Add(bal);
+
+                    bal = new Polygon();
+
+                    if (this == MainWindow.selected)
+                        bal.Fill = System.Windows.Media.Brushes.LightYellow;
+                    else
+                        bal.Fill = System.Windows.Media.Brushes.LightCyan;
+
+                    bal.Stroke = System.Windows.Media.Brushes.Black;
+
+                    for (int i = 0; i < 40; i++)
+                        bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40) - 7.5, embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40) + 7.5));
+                    canvas.Children.Add(bal);
                     break;
                 case 3:
+                    for (int i = 0; i < 40; i++)
+                        bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40) + 15, embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40)));
+                    canvas.Children.Add(bal);
+
+                    bal = new Polygon();
+
+                    if (this == MainWindow.selected)
+                        bal.Fill = System.Windows.Media.Brushes.LightYellow;
+                    else
+                        bal.Fill = System.Windows.Media.Brushes.LightCyan;
+
+                    bal.Stroke = System.Windows.Media.Brushes.Black;
+
+                    for (int i = 0; i < 40; i++)
+                        bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40) - 15, embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40)));
+                    canvas.Children.Add(bal);
+
+                    bal = new Polygon();
+
+                    if (this == MainWindow.selected)
+                        bal.Fill = System.Windows.Media.Brushes.LightYellow;
+                    else
+                        bal.Fill = System.Windows.Media.Brushes.LightCyan;
+
+                    bal.Stroke = System.Windows.Media.Brushes.Black;
+
+                    for (int i = 0; i < 40; i++)
+                        bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40), embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40)+15));
+                    canvas.Children.Add(bal);
                     break;
             }
 
