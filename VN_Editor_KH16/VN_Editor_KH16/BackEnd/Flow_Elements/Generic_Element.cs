@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
@@ -15,11 +16,23 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         public List<Generic_Element> inputs;
         public Point embedding_location;
 
+        public FlowEditor curr_king;
+
         public int level;
+
+        public void DragnDropLube (FlowEditor w)
+        {
+            curr_king = w;
+        }
 
         public void new_selected (object sender, EventArgs e)
         {
             MainWindow.change_selected(this);
+        }
+
+        protected void sender_converter(object sender, MouseEventArgs args)
+        {
+            curr_king.ex_slide_MouseMove(this, args);
         }
 
         public abstract void for_each_child(Action<Generic_Element> lambda);

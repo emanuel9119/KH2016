@@ -63,6 +63,11 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
             pic.MouseLeftButtonDown += new_selected;
 
+            if (curr_king != null)
+            {
+                pic.MouseMove += sender_converter;
+            }
+
             canvas.Children.Add(pic);
         }
 

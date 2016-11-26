@@ -31,7 +31,7 @@ namespace VN_Editor_KH16
                 MainWindow.docking_system.remove_window(this);
         }
 
-        public void Window_Active(object sender, EventArgs e)
+        public virtual void Window_Active(object sender, EventArgs e)
         {
             has_focus = true;
         }
