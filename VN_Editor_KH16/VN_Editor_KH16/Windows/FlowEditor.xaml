@@ -11,7 +11,15 @@
         Deactivated="Window_Deactive"
         LocationChanged="Window_Moved">
     <Grid>
-        <Button Content="Add to window" Click="Window_Dropped" Margin="0,0,-0.4,0" Height="58" VerticalAlignment="Top"/>
-        <Canvas Name="FlowCanv" Margin="0,57,0,0" ></Canvas>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"  Content="Add to window" Click="Window_Dropped" />
+        <Canvas Grid.Column="1" Grid.Row="1" Name="FlowCanv"></Canvas>
     </Grid>
 </local:Child_Window>
