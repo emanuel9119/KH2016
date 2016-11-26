@@ -64,6 +64,8 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             {
                 returnable.Add((Slide_Element)next);
                 next = ((Slide_Element)next).output;
+                if (next == null)
+                    break;
             }
 
             return returnable;

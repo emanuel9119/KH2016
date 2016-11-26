@@ -59,6 +59,7 @@ namespace VN_Editor_KH16
             e.Handled = num_check.IsMatch(e.Text);
 
             base.OnPreviewTextInput(e);
+            Choice_Enumerator.ItemsSource = ((Loud_Decision_Element)MainWindow.selected).outputs;
         }
 
         public void load_el ()
