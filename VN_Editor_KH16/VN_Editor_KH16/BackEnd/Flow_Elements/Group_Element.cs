@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
@@ -84,6 +85,11 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             return returnable;
         }
 
+        public void print (Canvas canvas)
+        {
+
+        }
+
         public override void for_each_child(Action<Generic_Element> lambda)
         {
             outputs.ForEach(o =>
@@ -99,6 +105,20 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                 lambda(o);
                 o.for_each_descendant(lambda);
             });
+        }
+
+        public override void print_el(Canvas canvas)
+        {
+            Polygon pic = new Polygon();
+            pic.Fill = System.Windows.Media.Brushes.LightCyan;
+            pic.Stroke = System.Windows.Media.Brushes.LightCyan;
+
+            pic.Points.Add(new Point(embedding_location.X - 60, embedding_location.Y + 30));
+            pic.Points.Add(new Point(embedding_location.X + 60, embedding_location.Y + 30));
+            pic.Points.Add(new Point(embedding_location.X + 60, embedding_location.Y - 30));
+            pic.Points.Add(new Point(embedding_location.X - 60, embedding_location.Y - 30));
+
+            canvas.Children.Add(pic);
         }
 
         public override int get_el_type()

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
@@ -35,6 +37,18 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         public override int get_el_type()
         {
             return 4;
+        }
+        
+        public override void print_el(Canvas canvas)
+        {
+            Polygon pic = new Polygon();
+            pic.Fill = System.Windows.Media.Brushes.LightCyan;
+            pic.Stroke= System.Windows.Media.Brushes.LightCyan;
+
+            for (int i = 0; i < 40; i++)
+                pic.Points.Add(new Point(embedding_location.X + 40 * Math.Cos(2*Math.PI*i/40), embedding_location.Y + 40 * Math.Sin(2 * Math.PI * i / 40)));
+
+            canvas.Children.Add(pic);
         }
     }
 }

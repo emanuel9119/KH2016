@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
@@ -58,6 +60,20 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             } while (curr != null);
 
             return returnable;
+        }
+
+        public override void print_el(Canvas canvas)
+        {
+            Polygon pic = new Polygon();
+            pic.Fill = System.Windows.Media.Brushes.LightCyan;
+            pic.Stroke = System.Windows.Media.Brushes.LightCyan;
+
+            pic.Points.Add(new Point(embedding_location.X - 40, embedding_location.Y + 40));
+            pic.Points.Add(new Point(embedding_location.X + 40, embedding_location.Y + 40));
+            pic.Points.Add(new Point(embedding_location.X + 40, embedding_location.Y - 40));
+            pic.Points.Add(new Point(embedding_location.X - 40, embedding_location.Y - 40));
+
+            canvas.Children.Add(pic);
         }
 
         public string speaker  { get; set; }
