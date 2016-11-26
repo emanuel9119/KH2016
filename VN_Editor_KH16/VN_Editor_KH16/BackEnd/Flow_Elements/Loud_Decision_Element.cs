@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Shapes;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
@@ -15,7 +16,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         public int _output_count = 1;
         public int output_count {
             get { return _output_count; }
-            set { _output_count = value;
+            set { _output_count = value % 10;
                 if (outputs.Count > _output_count)
                 {
                     outputs.RemoveRange(_output_count, outputs.Count - _output_count);
@@ -23,7 +24,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                 {
                     int wall = _output_count - outputs.Count;
                     for (int i = 0; i < wall; i++)
-                    outputs.Add(null);
+                    outputs.Add(new Choice_Desc_Pair() { owner = this, desc = "", choice = null });
                 }
             }
         }
@@ -102,12 +103,21 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                 case 1:
                     for (int i = 0; i < 40; i++)
                         bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40), embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40) + 15));
+                    if (curr_king != null)
+                    {
+                        bal.MouseMove += outputs[0].rewire;
+                    }
+
                     canvas.Children.Add(bal);
-                    
                     break;
                 case 2:
                     for (int i = 0; i < 40; i++)
                         bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40)+7.5, embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40) + 7.5));
+                    if (curr_king != null)
+                    {
+                        bal.MouseMove += outputs[0].rewire;
+                    }
+
                     canvas.Children.Add(bal);
 
                     bal = new Polygon();
@@ -121,11 +131,20 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
                     for (int i = 0; i < 40; i++)
                         bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40) - 7.5, embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40) + 7.5));
+                    if (curr_king != null)
+                    {
+                        bal.MouseMove += outputs[1].rewire;
+                    }
+
                     canvas.Children.Add(bal);
                     break;
                 case 3:
                     for (int i = 0; i < 40; i++)
                         bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40) + 15, embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40)));
+                    if (curr_king != null)
+                    {
+                        bal.MouseMove += outputs[0].rewire;
+                    }
                     canvas.Children.Add(bal);
 
                     bal = new Polygon();
@@ -139,6 +158,10 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
                     for (int i = 0; i < 40; i++)
                         bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40) - 15, embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40)));
+                    if (curr_king != null)
+                    {
+                        bal.MouseMove += outputs[1].rewire;
+                    }
                     canvas.Children.Add(bal);
 
                     bal = new Polygon();
@@ -152,6 +175,10 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
                     for (int i = 0; i < 40; i++)
                         bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40), embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40)+15));
+                    if (curr_king != null)
+                    {
+                        bal.MouseMove += outputs[2].rewire;
+                    }
                     canvas.Children.Add(bal);
                     break;
             }
@@ -180,7 +207,12 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
     public class Choice_Desc_Pair
     {
+        public Loud_Decision_Element owner;
         public Generic_Element choice { get; set; }
         public string desc { get; set; }
+        public void rewire(object sender, MouseEventArgs args)
+        {
+            owner.curr_king.rw_loud_MouseMove(choice, args);
+        }
     }
 }

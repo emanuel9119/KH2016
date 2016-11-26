@@ -56,8 +56,8 @@ namespace VN_Editor_KH16
 
             characters.Add(new Character() { name = "Gwynn" });
             characters.Add(new Character() { name = "Stacy" });
-            characters.Add(new Character() { name = "Mary" });
-            characters.Add(new Character() { name = "Jane" });
+            characters.Add(new Character() { name = "Mary"  });
+            characters.Add(new Character() { name = "Jane"  });
 
          //   Characters.ItemsSource = characters;
         */

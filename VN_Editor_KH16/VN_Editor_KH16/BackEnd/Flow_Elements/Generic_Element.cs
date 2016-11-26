@@ -20,12 +20,12 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
         public int level;
 
-        public void DragnDropLube (FlowEditor w)
+        public void DragnDropLube(FlowEditor w)
         {
             curr_king = w;
         }
 
-        public void new_selected (object sender, EventArgs e)
+        public void new_selected(object sender, EventArgs e)
         {
             MainWindow.change_selected(this);
         }
@@ -33,6 +33,21 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         protected void sender_converter(object sender, MouseEventArgs args)
         {
             curr_king.ex_slide_MouseMove(this, args);
+        }
+
+        protected void drop_handler(object sender, DragEventArgs args)
+        {
+            if (args.Handled == false)
+            {
+                string bar = (string)args.Data.GetData("String");
+                switch (bar)
+                {
+                    case "rw_loud":
+                        break;
+                }
+                Panel _panel = (Panel)sender;
+            }
+            args.Handled = true;
         }
 
         public abstract void for_each_child(Action<Generic_Element> lambda);

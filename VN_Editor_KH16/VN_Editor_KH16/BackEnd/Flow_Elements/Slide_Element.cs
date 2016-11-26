@@ -86,7 +86,6 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             pic.Points.Add(new Point(embedding_location.X + 10, embedding_location.Y - 10));
             pic.Points.Add(new Point(embedding_location.X - 10, embedding_location.Y - 10));
 
-
             Polygon bal = new Polygon();
 
             if (this == MainWindow.selected)
@@ -106,6 +105,9 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             {
                 pic.MouseMove += sender_converter;
             }
+
+            pic.AllowDrop = true;
+            pic.Drop += drop_handler;
 
             canvas.Children.Add(pic);
             canvas.Children.Add(bal);

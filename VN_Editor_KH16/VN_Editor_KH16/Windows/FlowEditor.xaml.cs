@@ -41,8 +41,8 @@ namespace VN_Editor_KH16
             header.interior_head = header.members[0];
             ((Slide_Element)header.members[0]).output = header.members[1];
             ((Loud_Decision_Element)header.members[1]).output_count = 2;
-            ((Loud_Decision_Element)header.members[1]).outputs[0] = new Choice_Desc_Pair() { choice = header.members[2] };
-            ((Loud_Decision_Element)header.members[1]).outputs[1] = new Choice_Desc_Pair() { choice = header.members[4] };
+            ((Loud_Decision_Element)header.members[1]).outputs[0] = new Choice_Desc_Pair() { choice = header.members[2], owner = ((Loud_Decision_Element)header.members[1])};
+            ((Loud_Decision_Element)header.members[1]).outputs[1] = new Choice_Desc_Pair() { choice = header.members[4], owner = ((Loud_Decision_Element)header.members[1])};
             ((Slide_Element)header.members[2]).output = header.members[3];
             ((Slide_Element)header.members[4]).output = header.members[5];
             ((Slide_Element)header.members[5]).output = header.members[6];
@@ -194,6 +194,19 @@ namespace VN_Editor_KH16
             }
         }
 
+        public void rw_loud_MouseMove(object sender, MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataObject data = new DataObject();
+                data.SetData("String", "rw_loud");
+                data.SetData("Object", sender);
+
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+            }
+        }
+
 
 
 
@@ -215,34 +228,30 @@ namespace VN_Editor_KH16
                         Slide_Element foo = new Slide_Element();
                         foo.embedding_location = e.GetPosition(FlowCanv);
                         header.add_member(foo);
-                        refresh();
+                        break;
+                    case "group":
+                        Group_Element the = new Group_Element();
+                        the.embedding_location = e.GetPosition(FlowCanv);
+                        header.add_member(the);
+                        break;
+                    case "loud":
+                        Loud_Decision_Element eht = new Loud_Decision_Element();
+                        eht.embedding_location = e.GetPosition(FlowCanv);
+                        header.add_member(eht);
+                        break;
+                    case "end":
+                        End_Element eth = new End_Element();
+                        eth.embedding_location = e.GetPosition(FlowCanv);
+                        header.add_member(eth);
                         break;
                     case "ex_slide":
                     case "ex_group":
                     case "ex_end":
                     case "ex_loud":
                         ((Generic_Element)e.Data.GetData("Object")).embedding_location = e.GetPosition(FlowCanv);
-                        refresh();
-                        break;
-                    case "group":
-                        Group_Element the = new Group_Element();
-                        the.embedding_location = e.GetPosition(FlowCanv);
-                        header.add_member(the);
-                        refresh();
-                        break;
-                    case "loud":
-                        Loud_Decision_Element eht = new Loud_Decision_Element();
-                        eht.embedding_location = e.GetPosition(FlowCanv);
-                        header.add_member(eht);
-                        refresh();
-                        break;
-                    case "end":
-                        End_Element eth = new End_Element();
-                        eth.embedding_location = e.GetPosition(FlowCanv);
-                        header.add_member(eth);
-                        refresh();
                         break;
                 }
+                refresh();
                 Panel _panel = (Panel)sender;
                 e.Effects = DragDropEffects.Move;
             }
@@ -262,6 +271,11 @@ namespace VN_Editor_KH16
         public void refresh ()
         {
             FlowCanv = header.print(FlowCanv);
+        }
+
+        public void run_on_base (MouseEventArgs args)
+        {
+            base.OnMouseMove(args);
         }
     }
 }
