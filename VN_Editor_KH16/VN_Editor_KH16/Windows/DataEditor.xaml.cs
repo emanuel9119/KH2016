@@ -64,7 +64,7 @@ namespace VN_Editor_KH16
             if (MainWindow.selected.get_el_type() == 2)
             {
                 decision_forms.ForEach(f => { f.Visibility = Visibility.Visible; });
-                Choice_Enumerator.DataContext = ((Loud_Decision_Element)MainWindow.selected);
+                Choice_Enumerator.ItemsSource = ((Loud_Decision_Element)MainWindow.selected).outputs;
             }
         }
     }

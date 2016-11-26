@@ -30,7 +30,6 @@ namespace VN_Editor_KH16
 
             header.add_member(new Slide_Element() { embedding_location = new Point (50,50), speaker="Mary", dialogue="Oi cunt" });
             header.add_member(new Loud_Decision_Element() { embedding_location = new Point(50, 100) });
-      //      ((Loud_Decision_Element)header.members[1]).outputs
             header.add_member(new Slide_Element() { embedding_location = new Point(50, 150), speaker = "Jane", dialogue = "Yeah what" });
             header.add_member(new End_Element  () { embedding_location = new Point(50, 200) });
             header.add_member(new Slide_Element() { embedding_location = new Point(100, 150), speaker = "Mary", dialogue = "I fucked ya mum" });
@@ -41,8 +40,9 @@ namespace VN_Editor_KH16
 
             header.interior_head = header.members[0];
             ((Slide_Element)header.members[0]).output = header.members[1];
-            ((Loud_Decision_Element)header.members[1]).outputs.Add(new Choice_Desc_Pair() { choice = header.members[2] });
-            ((Loud_Decision_Element)header.members[1]).outputs.Add(new Choice_Desc_Pair() { choice = header.members[4] });
+            ((Loud_Decision_Element)header.members[1]).output_count = 2;
+            ((Loud_Decision_Element)header.members[1]).outputs[0] = new Choice_Desc_Pair() { choice = header.members[2] };
+            ((Loud_Decision_Element)header.members[1]).outputs[1] = new Choice_Desc_Pair() { choice = header.members[4] };
             ((Slide_Element)header.members[2]).output = header.members[3];
             ((Slide_Element)header.members[4]).output = header.members[5];
             ((Slide_Element)header.members[5]).output = header.members[6];
