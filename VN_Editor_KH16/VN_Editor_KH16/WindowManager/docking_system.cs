@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace GlobeTrotter.WindowManager
+namespace VN_Editor_KH16.WindowManager
 {
     public class docking_system
     {

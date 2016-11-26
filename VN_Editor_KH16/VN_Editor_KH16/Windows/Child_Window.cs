@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace GlobeTrotter
+namespace VN_Editor_KH16
 {
     /// <summary>
     /// Interaction logic for SceneEditor.xaml

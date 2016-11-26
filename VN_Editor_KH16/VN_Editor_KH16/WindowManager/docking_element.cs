@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GlobeTrotter.WindowManager
+namespace VN_Editor_KH16.WindowManager
 {
     abstract class docking_element
     {

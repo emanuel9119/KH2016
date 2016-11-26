@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GlobeTrotter
+namespace VN_Editor_KH16
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static GlobeTrotter.WindowManager.docking_system docking_system;
+        public static VN_Editor_KH16.WindowManager.docking_system docking_system;
 
         public MainWindow()
         {
