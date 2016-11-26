@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
+using System.Windows.Input;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
     public class Slide_Element : Generic_Element
     {
+
         public Generic_Element output;
 
         public Slide_Element()
@@ -85,6 +87,11 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             pic.Points.Add(new Point(embedding_location.X - 10, embedding_location.Y - 10));
 
             pic.MouseLeftButtonDown += new_selected;
+
+            if (curr_king != null)
+            {
+                pic.MouseMove += sender_converter;
+            }
 
             canvas.Children.Add(pic);
         }

@@ -24,6 +24,9 @@ C:\Users\Emanuel\Documents\kh2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Edi
 C:\Users\Emanuel\Documents\kh2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.csproj.GenerateResource.Cache
 C:\Users\Emanuel\Documents\kh2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.exe
 C:\Users\Emanuel\Documents\kh2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.pdb
+<<<<<<< HEAD
+C:\Users\Emanuel\Documents\kh2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.csprojResolveAssemblyReference.cache
+=======
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.csprojResolveAssemblyReference.cache
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\ResourceEditor.g.cs
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\DataEditor.g.cs
@@ -51,3 +54,4 @@ C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.g.resources
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.Properties.Resources.resources
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.csproj.GenerateResource.Cache
+>>>>>>> 5703324f3340c90134e389303c2ce3a4d13696f9

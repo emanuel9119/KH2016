@@ -108,6 +108,14 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             });
         }
 
+        public void for_each_member(Action<Generic_Element> lambda)
+        {
+            members.ForEach(o =>
+            {
+                lambda(o);
+            });
+        }
+
         public override void for_each_descendant(Action<Generic_Element> lambda)
         {
             outputs.ForEach(o =>
@@ -143,6 +151,11 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             pic.Points.Add(new Point(embedding_location.X - 14, embedding_location.Y - 10));
 
             pic.MouseLeftButtonDown += new_selected;
+
+            if (curr_king != null)
+            {
+                pic.MouseMove += sender_converter;
+            }
 
             canvas.Children.Add(pic);
         }

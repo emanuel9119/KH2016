@@ -12,17 +12,23 @@
         LocationChanged="Window_Moved">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="78" />
+            <ColumnDefinition Width="22"/>
+            <ColumnDefinition Width="97*" />
+            <ColumnDefinition Width="95*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"  Content="Add to window" Click="Window_Dropped" />
-        <Canvas Name="test2" Grid.Column="0" Grid.Row="1">
-            
+        <Button Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"  Content="Add to window" Click="Window_Dropped" />
+        <Canvas Name="test2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+
         </Canvas>
-        <Canvas Grid.Column="1" Grid.Row="1" Name="FlowCanv"></Canvas>
+        <Canvas Background="Transparent" Grid.Column="2" Grid.Row="1" Name="FlowCanv" Grid.ColumnSpan="2" AllowDrop="True"
+            DragOver="panel_DragOver"
+            Drop="panel_Drop">
+
+        </Canvas>
     </Grid>
 </local:Child_Window>
