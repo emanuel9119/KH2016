@@ -12,7 +12,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
     public class Loud_Decision_Element : Generic_Element
     {
         public List<Choice_Desc_Pair> outputs;
-        public int _output_count = 0;
+        public int _output_count = 1;
         public int output_count {
             get { return _output_count; }
             set { _output_count = value;
@@ -75,7 +75,18 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             pic.Points.Add(new Point(embedding_location.X, embedding_location.Y - 14));
             pic.Points.Add(new Point(embedding_location.X - 14, embedding_location.Y));
 
+
             pic.MouseLeftButtonDown += new_selected;
+
+            Polygon bal = new Polygon();
+
+            if (this == MainWindow.selected)
+                bal.Fill = System.Windows.Media.Brushes.LightYellow;
+            else
+                bal.Fill = System.Windows.Media.Brushes.LightCyan;
+
+            bal.Stroke = System.Windows.Media.Brushes.Black;
+           
 
             if (curr_king != null)
             {
@@ -83,6 +94,20 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             }
 
             canvas.Children.Add(pic);
+
+            switch (_output_count)
+            {
+                case 1:
+                    for (int i = 0; i < 40; i++)
+                        bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40), embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40) + 15));
+                    canvas.Children.Add(bal);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+
         }
 
         public override void print_cn(ref Canvas canvas)

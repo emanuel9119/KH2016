@@ -53,6 +53,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             for (int i = 0; i < 40; i++)
                 pic.Points.Add(new Point(embedding_location.X + 10 * Math.Cos(2*Math.PI*i/40), embedding_location.Y + 10 * Math.Sin(2 * Math.PI * i / 40)));
 
+
             pic.MouseLeftButtonDown += new_selected;
 
             if (curr_king != null)

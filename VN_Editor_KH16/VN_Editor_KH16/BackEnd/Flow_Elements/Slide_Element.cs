@@ -86,6 +86,20 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             pic.Points.Add(new Point(embedding_location.X + 10, embedding_location.Y - 10));
             pic.Points.Add(new Point(embedding_location.X - 10, embedding_location.Y - 10));
 
+
+            Polygon bal = new Polygon();
+
+            if (this == MainWindow.selected)
+                bal.Fill = System.Windows.Media.Brushes.LightYellow;
+            else
+                bal.Fill = System.Windows.Media.Brushes.LightCyan;
+
+            bal.Stroke = System.Windows.Media.Brushes.Black;
+
+            for (int i = 0; i < 40; i++)
+                bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40), embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40)+10));
+
+
             pic.MouseLeftButtonDown += new_selected;
 
             if (curr_king != null)
@@ -94,6 +108,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             }
 
             canvas.Children.Add(pic);
+            canvas.Children.Add(bal);
         }
 
         public override void print_cn(ref Canvas canvas)
