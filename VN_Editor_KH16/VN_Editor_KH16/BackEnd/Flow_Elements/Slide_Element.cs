@@ -142,8 +142,24 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             }
         }
 
+        public void print_scene(Canvas canvas)
+        {
+            if (background != null)
+            {
+                canvas.Children.Add(background);
+            }
+        }
+
         public string speaker  { get; set; }
         public string dialogue { get; set; }
-        public string dev_note { get; set; }
+        public List<char_instance> characters = new List<char_instance>();
+        public Image background;
+    }
+
+    public class char_instance
+    {
+        Char_Set.Character ch;
+        int sprite_num = 0;
+        int position = 1; //0 1 2
     }
 }
