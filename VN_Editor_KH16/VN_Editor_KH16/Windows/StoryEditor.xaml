@@ -12,5 +12,19 @@
         LocationChanged="Window_Moved">
     <Grid>
         <Button Content="Add to window" Click="Window_Dropped" Margin="69,35,109,206"/>
+        <ListBox Name="Story_List" VerticalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="26"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox Grid.Row="0" Text="{Binding speaker}"/>
+                        <TextBox Grid.Row="1" Text="{Binding dialogue}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </local:Child_Window>
