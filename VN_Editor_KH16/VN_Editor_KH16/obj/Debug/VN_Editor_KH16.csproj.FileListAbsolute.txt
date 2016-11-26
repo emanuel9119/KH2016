@@ -38,3 +38,5 @@ C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Edito
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\VN_Editor_KH16.csproj.GenerateResource.Cache
 C:\Users\Emanuel\Documents\kh2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\TreeViewer.g.cs
 C:\Users\Emanuel\Documents\kh2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\TreeViewer.baml
+C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\TreeViewer.g.cs
+C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\TreeViewer.baml

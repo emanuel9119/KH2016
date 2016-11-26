@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
@@ -19,5 +20,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         public abstract void for_each_child(Action<Generic_Element> lambda);
         public abstract void for_each_descendant(Action<Generic_Element> lambda); //Warning: May fire twice
         public abstract int get_el_type();
+
+        public abstract void print_el(Canvas canvas);
     }
 }
