@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="BackEnd\Char_Set\Asset.cs" />
     <Compile Include="BackEnd\Char_Set\Tagged_Image.cs" />
+    <Compile Include="Shapes.cs" />
     <Compile Include="Windows\ResourceEditor.xaml.cs">
       <DependentUpon>ResourceEditor.xaml</DependentUpon>
     </Compile>
