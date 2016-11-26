@@ -20,7 +20,7 @@ namespace VN_Editor_KH16
     /// </summary>
     public partial class FlowEditor : Child_Window
     {
-        Group_Element header = new Group_Element();
+        static Group_Element header = new Group_Element();
 
         public FlowEditor()
         {
@@ -50,36 +50,40 @@ namespace VN_Editor_KH16
             refresh();
             MainWindow.new_selected_el += refresh;
 
-            Polygon slide_example = Shapes.slide;
+            Polygon slide_example = new Polygon();
             slide_example.Fill = System.Windows.Media.Brushes.Salmon;
             slide_example.HorizontalAlignment = HorizontalAlignment.Left;
             slide_example.VerticalAlignment = VerticalAlignment.Top;
             slide_example.Margin = new Thickness(50, 50, 0, 0);
             slide_example.MouseMove += slide_MouseMove;
+            slide_example.Points = Shapes.slide.Points;
             test2.Children.Add(slide_example);
 
-            Polygon group_example = Shapes.group;
+            Polygon group_example = new Polygon();
             group_example.Fill = System.Windows.Media.Brushes.Indigo;
             group_example.HorizontalAlignment = HorizontalAlignment.Left;
             group_example.VerticalAlignment = VerticalAlignment.Top;
             group_example.Margin = new Thickness(50, 100, 0, 0);
             group_example.MouseMove += group_MouseMove;
+            group_example.Points = Shapes.group.Points;
             test2.Children.Add(group_example);
 
-            Polygon loud_example = Shapes.loud_decision;
+            Polygon loud_example = new Polygon();
             loud_example.Fill = System.Windows.Media.Brushes.PaleVioletRed;
             loud_example.HorizontalAlignment = HorizontalAlignment.Left;
             loud_example.VerticalAlignment = VerticalAlignment.Top;
             loud_example.Margin = new Thickness(50, 150, 0, 0);
             loud_example.MouseMove += loud_MouseMove;
+            loud_example.Points = Shapes.loud_decision.Points;
             test2.Children.Add(loud_example);
 
-            Polygon end_example = Shapes.end;
+            Polygon end_example = new Polygon();
             end_example.Fill = System.Windows.Media.Brushes.PaleVioletRed;
             end_example.HorizontalAlignment = HorizontalAlignment.Left;
             end_example.VerticalAlignment = VerticalAlignment.Top;
             end_example.Margin = new Thickness(50, 200, 0, 0);
             end_example.MouseMove += end_MouseMove;
+            end_example.Points = Shapes.end.Points;
             test2.Children.Add(end_example);
 
             Window_Active(null, null);
