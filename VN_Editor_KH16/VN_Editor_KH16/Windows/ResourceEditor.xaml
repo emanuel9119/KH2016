@@ -23,20 +23,13 @@
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Add to window" Click="Window_Dropped" />
         
-        <Button Grid.Row="1" HorizontalAlignment="Stretch" Content="Add Character"/>
-        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Content="Add Setting" />
+        <Button Grid.Row="1" HorizontalAlignment="Stretch" Click="new_char" Content="Add Character"/>
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Click="new_sett" Content="Add Setting" />
 
-        <ListBox Name="CharList" Grid.Row="2" Grid.ColumnSpan="2" IsMouseCapturedChanged="CharList_IsMouseCapturedChanged">
+        <ListBox Name="CharList" Grid.Row="2" Grid.ColumnSpan="2" MouseLeftButtonUp="CharList_IsMouseCapturedChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Grid.Row="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="{Binding test}"/>
-                        <TextBlock Grid.Row="1" Text="{Binding test2}"/>
-                    </Grid>
+                    <TextBlock Text="{Binding name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

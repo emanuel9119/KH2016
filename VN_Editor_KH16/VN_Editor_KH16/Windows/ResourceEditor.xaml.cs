@@ -20,29 +20,31 @@ namespace VN_Editor_KH16
     /// </summary>
     public partial class ResourceEditor : Child_Window
     {
-        public class Test
-        {
-            public int test { get; set; }
-            public string test2 { get; set; }
-        }
+        static public List<Character> characters = new List<Character>();
 
         public ResourceEditor()
         {
             InitializeComponent();
 
-            List<Test> Ltest = new List<Test>();
-            Ltest.Add(new Test { test = 1, test2 = "blah" });
-            Ltest.Add(new Test { test = 1, test2 = "blah" });
-            Ltest.Add(new Test { test = 1, test2 = "blah" });
-
-            CharList.ItemsSource = Ltest;
+            CharList.ItemsSource = characters;
 
         }
 
-        private void CharList_IsMouseCapturedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        void new_char (object sender, EventArgs args)
         {
-            // Add code here for onclick things
-            this.Content = "derp";
+            characters.Add(new Character { name = "New Character" });
+            CharList.ItemsSource = null;
+            CharList.ItemsSource = characters;
+        }
+
+        void new_sett(object sender, EventArgs args)
+        {
+            characters.Add(new Character { name = "New Character" });
+        }
+
+        private void CharList_IsMouseCapturedChanged(object sender, EventArgs e)
+        {
+            MainWindow.change_selected_as(characters[CharList.SelectedIndex]);
         }
     }
 }
