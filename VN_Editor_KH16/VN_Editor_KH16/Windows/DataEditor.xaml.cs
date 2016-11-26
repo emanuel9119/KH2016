@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using VN_Editor_KH16.BackEnd.Flow_Elements;
+using Microsoft.Win32;
+using System.IO;
 
 namespace VN_Editor_KH16
 {
@@ -23,6 +25,7 @@ namespace VN_Editor_KH16
     {
         List<FrameworkElement> slide_forms = new List<FrameworkElement>();
         List<FrameworkElement> decision_forms = new List<FrameworkElement>();
+        List<FrameworkElement> character_forms = new List<FrameworkElement>();
 
         public DataEditor()
         {
@@ -31,6 +34,7 @@ namespace VN_Editor_KH16
             safe_destruction = false;
 
             MainWindow.new_selected_el += load_el;
+            MainWindow.new_selected_as += load_as;
 
             slide_forms.Add(Speaker_Name);
             slide_forms.Add(Speaker_Dialogue);
@@ -41,7 +45,19 @@ namespace VN_Editor_KH16
             decision_forms.Add(Choice_Enumerator);
             decision_forms.Add(Choice_number);
 
+            character_forms.Add(Picture_Holder);
+
             close_all();
+        }
+
+        public void Load_Image_Func (object sender, EventArgs e)
+        {
+            OpenFileDialog load_image_dialog = new OpenFileDialog();
+            if (load_image_dialog.ShowDialog() == true)
+            {
+                MainWindow.selected_ass.add_image(new BitmapImage(new Uri(load_image_dialog.FileName)));
+                c_1.Children.Add(MainWindow.selected_ass.images[0].img);
+            }
         }
 
         public void close_all ()
@@ -51,6 +67,9 @@ namespace VN_Editor_KH16
 
             slide_forms.ForEach(f => { f.Focus(); });
             slide_forms.ForEach(f => { f.Visibility = Visibility.Collapsed; });
+
+            character_forms.ForEach(f => { f.Focus(); });
+            character_forms.ForEach(f => { f.Visibility = Visibility.Collapsed; });
         }
 
         public void check_if_num (object sender, System.Windows.Input.TextCompositionEventArgs e)
@@ -60,6 +79,16 @@ namespace VN_Editor_KH16
 
             base.OnPreviewTextInput(e);
             Choice_Enumerator.ItemsSource = ((Loud_Decision_Element)MainWindow.selected).outputs;
+        }
+
+        public void load_as()
+        {
+            close_all();
+
+            if (MainWindow.selected_ass.asset_type() == 0)
+            {
+                character_forms.ForEach(f => { f.Visibility = Visibility.Visible; });
+            }
         }
 
         public void load_el ()

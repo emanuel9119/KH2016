@@ -27,6 +27,21 @@
             </Grid.ColumnDefinitions>
             
             <Canvas Grid.Row="0" Name="Scene_Previewer"/>
+            <Grid Grid.ColumnSpan="2" Name="Picture_Holder">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="Pic_Loader" Grid.Row="0" Grid.ColumnSpan="3" Click="Load_Image_Func"/>
+                <Canvas Name="c_1" Grid.Row="1" Grid.Column="0"/>
+            </Grid>
             <Grid Grid.Row="0" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>

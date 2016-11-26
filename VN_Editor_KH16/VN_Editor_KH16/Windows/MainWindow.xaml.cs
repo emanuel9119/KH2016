@@ -33,8 +33,17 @@ namespace VN_Editor_KH16
         public static void change_selected(BackEnd.Flow_Elements.Generic_Element el)
         {
             selected = el;
-            new_selected_el();
+            if (new_selected_as != null)
+                new_selected_el();
             use_ass = false;
+        }
+
+        public static void change_selected_as(BackEnd.Char_Set.Asset ass)
+        {
+            selected_ass = ass;
+            if (new_selected_as != null)
+                new_selected_as();
+            use_ass = true;
         }
 
         public MainWindow()

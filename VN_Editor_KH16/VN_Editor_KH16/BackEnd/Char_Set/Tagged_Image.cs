@@ -9,8 +9,8 @@ namespace VN_Editor_KH16.BackEnd.Char_Set
 {
     public class Tagged_Image
     {
-        Image img;
-        List<string> tags;
+        public Image img = new Image();
+        public List<string> tags = new List<string>();
 
         public int similarity(List<string> otags)
         {
