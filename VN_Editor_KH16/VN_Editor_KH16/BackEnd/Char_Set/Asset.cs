@@ -9,8 +9,13 @@ namespace VN_Editor_KH16.BackEnd.Char_Set
 {
     abstract class Asset
     {
-        string name;
-        List<Tagged_Image> images;
+        public string name { get; set; }
+        public List<Tagged_Image> images { get; set; }
+
+        public static implicit operator string (Asset ass)
+        {
+            return ass.name;
+        }
 
         public abstract void print(Canvas canvas, List<string> tags);
     }

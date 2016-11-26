@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VN_Editor_KH16.BackEnd.Char_Set;
 
 namespace VN_Editor_KH16
 {
@@ -19,11 +20,20 @@ namespace VN_Editor_KH16
     /// </summary>
     public partial class ResourceEditor : Child_Window
     {
+        List<Character> characters = new List<Character>();
+
         public ResourceEditor()
         {
             InitializeComponent();
             is_docked = false;
             safe_destruction = false;
+
+            characters.Add(new Character() { name = "Gwynn" });
+            characters.Add(new Character() { name = "Stacy" });
+            characters.Add(new Character() { name = "Mary" });
+            characters.Add(new Character() { name = "Jane" });
+
+            Characters.ItemsSource = characters;
         }
     }
 }

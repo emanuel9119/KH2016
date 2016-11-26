@@ -14,14 +14,9 @@
         <Button Content="Add to window" Click="Window_Dropped" Margin="0,0,-0.4,0" Height="23" VerticalAlignment="Top"/>
         <TreeView Margin="0,28,-0.4,0.4">
             <TreeViewItem Header="Locations">
-                <TreeViewItem.ItemTemplate>
-                    <DataTemplate>
-                        <TreeViewItem Header="{Binding name}"/>
-                    </DataTemplate>
-                </TreeViewItem.ItemTemplate>
             </TreeViewItem>
-            <TreeViewItem Header="Characters">
-
+            <TreeViewItem Name="Characters" Header="Characters">
+                
             </TreeViewItem>
         </TreeView>
     </Grid>
