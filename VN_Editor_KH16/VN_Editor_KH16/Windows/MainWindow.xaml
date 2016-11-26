@@ -17,8 +17,7 @@
                     <MenuItem Header="_Story Editor" Click="StoryMenuClicked"/>
                     <MenuItem Header="_Flow Editor" Click="FlowEditorClicked"/>
                     <MenuItem Header="_Data Editor" Click="DataEditorClicked"/>
-                    <MenuItem Header="_Tree Viewer" Click="StoryHierClicked"/>
-                    
+
                 </MenuItem>
                 <MenuItem Header="_Layout">
                     <MenuItem Header="_Balanced" Click="Layout_Balanced"/>

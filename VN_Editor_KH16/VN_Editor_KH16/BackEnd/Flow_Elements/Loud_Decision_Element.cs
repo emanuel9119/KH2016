@@ -32,11 +32,14 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         public Loud_Decision_Element()
         {
             outputs = new List<Choice_Desc_Pair>();
+            outputs.Add(new Choice_Desc_Pair() { owner = this, desc = "", choice = null });
         }
 
         public Loud_Decision_Element(Point loc)
         {
             embedding_location = loc;
+            outputs = new List<Choice_Desc_Pair>();
+            outputs.Add(new Choice_Desc_Pair() { owner = this, desc = "", choice = null });
         }
 
         public override void for_each_child(Action<Generic_Element> lambda)
@@ -78,10 +81,11 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             pic.Points.Add(new Point(embedding_location.X - 14, embedding_location.Y));
 
 
-            pic.MouseLeftButtonDown += new_selected;
+            pic.MouseRightButtonDown += new_selected;
 
-            
-           
+            pic.Drop += drop_handler;
+
+
 
             if (curr_king != null)
             {
@@ -192,13 +196,32 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                Line ln = new Line();
                ln.Stroke = System.Windows.Media.Brushes.Black;
 
-               ln.X1 = embedding_location.X;
-               ln.Y1 = embedding_location.Y;
+                if (output_count == 1 || output_count == 3 && i == 1)
+                {
+                    ln.X1 = embedding_location.X;
+                    ln.Y1 = embedding_location.Y + 14;
+                }
+                else if (output_count == 2)
+                {
+                    ln.X1 = embedding_location.X + (i == 0 ? 7 : -7);
+                    ln.Y1 = embedding_location.Y + 7;
+                }
+                else
+                {
+                    ln.X1 = embedding_location.X + (i == 0 ? 14 : -14);
+                    ln.Y1 = embedding_location.Y;
 
-               ln.X2 = outputs[i].choice.embedding_location.X;
-               ln.Y2 = outputs[i].choice.embedding_location.Y;
+                }
 
-               canvas.Children.Add(ln);
+                ln.X2 = outputs[i].choice.embedding_location.X;
+                if (outputs[i].choice.get_el_type() == 2)
+                    ln.Y2 = outputs[i].choice.embedding_location.Y - 14;
+                else if (outputs[i].choice.get_el_type() == 4)
+                    ln.Y2 = outputs[i].choice.embedding_location.Y;
+                else
+                    ln.Y2 = outputs[i].choice.embedding_location.Y - 10;
+
+                canvas.Children.Add(ln);
            }
         }
     }
@@ -212,7 +235,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
         public string desc { get; set; }
         public void rewire(object sender, MouseEventArgs args)
         {
-            owner.curr_king.rw_loud_MouseMove(choice, args);
+            owner.curr_king.rw_loud_MouseMove(this, args);
         }
     }
 }

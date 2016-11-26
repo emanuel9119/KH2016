@@ -47,25 +47,24 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             return 1;
         }
 
-        public List<Slide_Element> get_streak(ref Generic_Element new_head)
+        public List<Slide_Element> get_streak()
         {
             List<Slide_Element> returnable = new List<Slide_Element>();
-            Slide_Element curr = this;
+            Generic_Element next = this;
 
-            do
+            while (next.inputs.Count == 1)
             {
-                returnable.Add(curr);
-                if (curr.output == null)
-                {
-                    new_head = null;
-                    curr = null;
-                }else if (curr.output.get_el_type() == 1 && curr.output.inputs.Count <= 1)
-                    curr = (Slide_Element)curr.output;
-                else {
-                    new_head = curr.output;
-                    curr = null;
-                }
-            } while (curr != null);
+                if (next.inputs[0].get_el_type() == 1)
+                    next = next.inputs[0];
+                else
+                    break;
+            }
+
+            while (next.get_el_type() == 1)
+            {
+                returnable.Add((Slide_Element)next);
+                next = ((Slide_Element)next).output;
+            }
 
             return returnable;
         }
@@ -99,7 +98,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                 bal.Points.Add(new Point(embedding_location.X + 5 * Math.Cos(2 * Math.PI * i / 40), embedding_location.Y + 5 * Math.Sin(2 * Math.PI * i / 40)+10));
 
 
-            pic.MouseLeftButtonDown += new_selected;
+            pic.MouseRightButtonDown += new_selected;
 
             if (curr_king != null)
             {
@@ -108,9 +107,15 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
             pic.AllowDrop = true;
             pic.Drop += drop_handler;
+            bal.MouseMove += slide_mousemv;
 
             canvas.Children.Add(pic);
             canvas.Children.Add(bal);
+        }
+
+        public void slide_mousemv(object sender, MouseEventArgs args)
+        {
+            curr_king.rw_slide_MouseMove(this, args);
         }
 
         public override void print_cn(ref Canvas canvas)
@@ -121,10 +126,15 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                 ln.Stroke = System.Windows.Media.Brushes.Black;
 
                 ln.X1 = embedding_location.X;
-                ln.Y1 = embedding_location.Y;
+                ln.Y1 = embedding_location.Y + 10;
 
                 ln.X2 = output.embedding_location.X;
-                ln.Y2 = output.embedding_location.Y;
+                if (output.get_el_type() == 2)
+                    ln.Y2 = output.embedding_location.Y - 14;
+                else if (output.get_el_type() == 4)
+                    ln.Y2 = output.embedding_location.Y;
+                else
+                    ln.Y2 = output.embedding_location.Y - 10;
 
                 canvas.Children.Add(ln);
             }

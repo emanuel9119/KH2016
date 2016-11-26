@@ -38,57 +38,13 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             public TreeViewItem Node;
         };
 
-        public TreeView get_stories (ref TreeView returnable)
-        {
-            Stack<Node_El_Pair> todo_list = new Stack<Node_El_Pair>();
-            List<Generic_Element> buffer = new List<Generic_Element>();
-            todo_list.Push(new Node_El_Pair(interior_head, null));
-
-            while (todo_list.Count > 0)
-            {
-                buffer.Clear();
-                Node_El_Pair parent = todo_list.Pop();
-                parent.El.for_each_child(c => { if(c != null) buffer.Add(c); });
-
-                for (int i = 0; i < buffer.Count; i++)
-                {
-                    if (buffer[i].get_el_type() == 1)
-                    {
-                        Generic_Element next_thing = null;
-                        List<Slide_Element> new_list = ((Slide_Element)buffer[i]).get_streak(ref next_thing);
-                        if (parent.Node == null)
-                            returnable.Items.Add(new_list);
-                        else
-                            parent.Node.Items.Add(new_list);
-
-                        if (next_thing != null)
-                        {
-                            TreeViewItem new_item_2 = new TreeViewItem();
-                            new_item_2.Header = next_thing.dalet;
-                            if (parent.Node == null)
-                                returnable.Items.Add(new_item_2);
-                            else
-                                parent.Node.Items.Add(new_item_2);
-                            todo_list.Push(new Node_El_Pair(next_thing, new_item_2));
-                        }
-                    }else if (buffer[i].get_el_type() != 4)
-                    {
-                        TreeViewItem new_item = new TreeViewItem();
-                        new_item.Header = parent.El.dalet;
-                        if (parent.Node == null)
-                            returnable.Items.Add(new_item);
-                        else
-                            parent.Node.Items.Add(new_item);
-                        buffer[i].for_each_child(c => todo_list.Push(new Node_El_Pair(c, new_item)));
-                    }
-                };
-            }
-
-            return returnable;
-        }
-
         public void add_member (Generic_Element new_el)
         {
+            if (members.Count == 0)
+            {
+                interior_head = new_el;
+                new_el.inputs.Add(this);
+            }
             members.Add(new_el);
         }
 
@@ -150,7 +106,8 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             pic.Points.Add(new Point(embedding_location.X + 14, embedding_location.Y - 10));
             pic.Points.Add(new Point(embedding_location.X - 14, embedding_location.Y - 10));
 
-            pic.MouseLeftButtonDown += new_selected;
+            pic.MouseRightButtonDown += new_selected;
+            pic.Drop += drop_handler;
 
             if (curr_king != null)
             {

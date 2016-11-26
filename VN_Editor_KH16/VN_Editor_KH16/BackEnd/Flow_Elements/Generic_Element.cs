@@ -13,7 +13,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
     {
         public string dalet { get; set; } = "kek";
 
-        public List<Generic_Element> inputs;
+        public List<Generic_Element> inputs = new List<Generic_Element>();
         public Point embedding_location;
 
         public FlowEditor curr_king;
@@ -43,8 +43,15 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                 switch (bar)
                 {
                     case "rw_loud":
+                        inputs.Add(((Choice_Desc_Pair)args.Data.GetData("Object")).owner);
+                        ((Choice_Desc_Pair)args.Data.GetData("Object")).choice = this;
+                        break;
+                    case "rw_slide":
+                        inputs.Add(((Generic_Element)args.Data.GetData("Object")));
+                        ((Slide_Element)args.Data.GetData("Object")).output = this;
                         break;
                 }
+                ((FlowEditor)args.Data.GetData("Wind")).refresh();
                 Panel _panel = (Panel)sender;
             }
             args.Handled = true;
