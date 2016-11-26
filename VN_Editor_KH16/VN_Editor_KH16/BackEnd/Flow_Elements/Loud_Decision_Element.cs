@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
-    public class Decision_Element : Generic_Element
+    public class Loud_Decision_Element : Generic_Element
     {
         public List<Choice_Desc_Pair> outputs;
+
+        Loud_Decision_Element()
+        {
+            outputs = new List<Choice_Desc_Pair>();
+        }
+
+        Loud_Decision_Element(Point loc)
+        {
+            embedding_location = loc;
+        }
 
         public override void for_each_child(Action<Generic_Element> lambda)
         {
@@ -25,6 +36,11 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
                 lambda(o.choice);
                 o.choice.for_each_descendant(lambda);
             });
+        }
+
+        public override int get_el_type()
+        {
+            return 2;
         }
     }
 

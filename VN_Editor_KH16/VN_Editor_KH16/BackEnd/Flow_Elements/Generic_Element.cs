@@ -9,12 +9,13 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
     public abstract class Generic_Element
     {
-        List<Generic_Element> inputs;
-        Point embedding_location;
+        public List<Generic_Element> inputs;
+        public Point embedding_location;
 
-        int level;
+        public int level;
 
         public abstract void for_each_child(Action<Generic_Element> lambda);
         public abstract void for_each_descendant(Action<Generic_Element> lambda); //Warning: May fire twice
+        public abstract int get_el_type();
     }
 }
