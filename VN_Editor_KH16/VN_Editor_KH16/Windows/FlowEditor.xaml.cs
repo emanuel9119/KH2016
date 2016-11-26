@@ -20,7 +20,7 @@ namespace VN_Editor_KH16
     /// </summary>
     public partial class FlowEditor : Child_Window
     {
-        Group_Element header;
+        Group_Element header = new Group_Element();
 
         public FlowEditor()
         {
@@ -28,12 +28,18 @@ namespace VN_Editor_KH16
             is_docked = false;
             safe_destruction = false;
 
-            header.interior_head = new Slide_Element();
-            ((Slide_Element)header.interior_head).output = new Loud_Decision_Element();
-            ((Loud_Decision_Element)((Slide_Element)header.interior_head).output).outputs.Add(new Choice_Desc_Pair() { choice = new Slide_Element() { output = new Slide_Element() } });
-            ((Loud_Decision_Element)((Slide_Element)header.interior_head).output).outputs.Add(new Choice_Desc_Pair() { choice = new Slide_Element() });
+            header.interior_head = new Slide_Element() { embedding_location = new Point(50, 50) };
+            ((Slide_Element)header.interior_head).output = new Loud_Decision_Element() { embedding_location = new Point(50, 100) };
+            ((Loud_Decision_Element)((Slide_Element)header.interior_head).output).outputs.Add(new Choice_Desc_Pair() { choice = new Slide_Element() { output = new Slide_Element() { embedding_location = new Point(50, 200) } , embedding_location = new Point(50, 150) } });
+            ((Loud_Decision_Element)((Slide_Element)header.interior_head).output).outputs.Add(new Choice_Desc_Pair() { choice = new Slide_Element() { embedding_location = new Point(100, 150) } });
 
-            header.print(FlowCanv);
+            refresh();
+            MainWindow.new_selected_el += refresh;
+        }
+
+        public void refresh ()
+        {
+            FlowCanv = header.print(FlowCanv);
         }
     }
 }

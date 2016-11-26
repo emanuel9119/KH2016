@@ -45,18 +45,42 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             return 2;
         }
 
-        public override void print_el(Canvas canvas)
+        public override void print_el(ref Canvas canvas)
         {
             Polygon pic = new Polygon();
-            pic.Fill = System.Windows.Media.Brushes.LightCyan;
-            pic.Stroke = System.Windows.Media.Brushes.LightCyan;
 
-            pic.Points.Add(new Point(embedding_location.X, embedding_location.Y + 60));
-            pic.Points.Add(new Point(embedding_location.X + 60, embedding_location.Y));
-            pic.Points.Add(new Point(embedding_location.X, embedding_location.Y - 60));
-            pic.Points.Add(new Point(embedding_location.X - 60, embedding_location.Y));
+            if (this == MainWindow.selected)
+                pic.Fill = System.Windows.Media.Brushes.LightYellow;
+            else
+                pic.Fill = System.Windows.Media.Brushes.LightCyan;
+
+            pic.Stroke = System.Windows.Media.Brushes.Black;
+
+            pic.Points.Add(new Point(embedding_location.X, embedding_location.Y + 14));
+            pic.Points.Add(new Point(embedding_location.X + 14, embedding_location.Y));
+            pic.Points.Add(new Point(embedding_location.X, embedding_location.Y - 14));
+            pic.Points.Add(new Point(embedding_location.X - 14, embedding_location.Y));
+
+            pic.MouseLeftButtonDown += new_selected;
 
             canvas.Children.Add(pic);
+        }
+
+        public override void print_cn(ref Canvas canvas)
+        {
+            for (int i = 0; i < outputs.Count; i++)
+           {
+               Line ln = new Line();
+               ln.Stroke = System.Windows.Media.Brushes.Black;
+
+               ln.X1 = embedding_location.X;
+               ln.Y1 = embedding_location.Y;
+
+               ln.X2 = outputs[i].choice.embedding_location.X;
+               ln.Y2 = outputs[i].choice.embedding_location.Y;
+
+               canvas.Children.Add(ln);
+           }
         }
     }
 

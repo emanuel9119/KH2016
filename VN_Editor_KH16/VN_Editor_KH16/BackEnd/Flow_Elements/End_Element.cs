@@ -39,16 +39,28 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             return 4;
         }
         
-        public override void print_el(Canvas canvas)
+        public override void print_el(ref Canvas canvas)
         {
             Polygon pic = new Polygon();
-            pic.Fill = System.Windows.Media.Brushes.LightCyan;
-            pic.Stroke= System.Windows.Media.Brushes.LightCyan;
+
+            if (this == MainWindow.selected)
+                pic.Fill = System.Windows.Media.Brushes.LightYellow;
+            else
+                pic.Fill = System.Windows.Media.Brushes.LightCyan;
+
+            pic.Stroke= System.Windows.Media.Brushes.Black;
 
             for (int i = 0; i < 40; i++)
-                pic.Points.Add(new Point(embedding_location.X + 40 * Math.Cos(2*Math.PI*i/40), embedding_location.Y + 40 * Math.Sin(2 * Math.PI * i / 40)));
+                pic.Points.Add(new Point(embedding_location.X + 10 * Math.Cos(2*Math.PI*i/40), embedding_location.Y + 10 * Math.Sin(2 * Math.PI * i / 40)));
+
+            pic.MouseLeftButtonDown += new_selected;
 
             canvas.Children.Add(pic);
+        }
+
+        public override void print_cn(ref Canvas canvas)
+        {
+
         }
     }
 }

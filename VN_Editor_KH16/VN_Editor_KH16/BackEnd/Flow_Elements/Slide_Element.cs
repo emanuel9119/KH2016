@@ -25,13 +25,19 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
         public override void for_each_child(Action<Generic_Element> lambda)
         {
-            lambda(output);
+            if (output != null)
+            {
+                lambda(output);
+            }
         }
 
         public override void for_each_descendant(Action<Generic_Element> lambda)
         {
-            lambda(output);
-            output.for_each_descendant(lambda);
+            if (output != null)
+            {
+                lambda(output);
+                output.for_each_descendant(lambda);
+            }
         }
 
         public override int get_el_type()
@@ -62,18 +68,42 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             return returnable;
         }
 
-        public override void print_el(Canvas canvas)
+        public override void print_el(ref Canvas canvas)
         {
             Polygon pic = new Polygon();
-            pic.Fill = System.Windows.Media.Brushes.LightCyan;
-            pic.Stroke = System.Windows.Media.Brushes.LightCyan;
 
-            pic.Points.Add(new Point(embedding_location.X - 40, embedding_location.Y + 40));
-            pic.Points.Add(new Point(embedding_location.X + 40, embedding_location.Y + 40));
-            pic.Points.Add(new Point(embedding_location.X + 40, embedding_location.Y - 40));
-            pic.Points.Add(new Point(embedding_location.X - 40, embedding_location.Y - 40));
+            if (this == MainWindow.selected)
+                pic.Fill = System.Windows.Media.Brushes.LightYellow;
+            else
+                pic.Fill = System.Windows.Media.Brushes.LightCyan;
+            
+            pic.Stroke = System.Windows.Media.Brushes.Black;
+
+            pic.Points.Add(new Point(embedding_location.X - 10, embedding_location.Y + 10));
+            pic.Points.Add(new Point(embedding_location.X + 10, embedding_location.Y + 10));
+            pic.Points.Add(new Point(embedding_location.X + 10, embedding_location.Y - 10));
+            pic.Points.Add(new Point(embedding_location.X - 10, embedding_location.Y - 10));
+
+            pic.MouseLeftButtonDown += new_selected;
 
             canvas.Children.Add(pic);
+        }
+
+        public override void print_cn(ref Canvas canvas)
+        {
+            if (output != null)
+            {
+                Line ln = new Line();
+                ln.Stroke = System.Windows.Media.Brushes.Black;
+
+                ln.X1 = embedding_location.X;
+                ln.Y1 = embedding_location.Y;
+
+                ln.X2 = output.embedding_location.X;
+                ln.Y2 = output.embedding_location.Y;
+
+                canvas.Children.Add(ln);
+            }
         }
 
         public string speaker  { get; set; }

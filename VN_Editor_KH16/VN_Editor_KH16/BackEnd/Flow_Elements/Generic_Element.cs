@@ -17,10 +17,16 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 
         public int level;
 
+        public void new_selected (object sender, EventArgs e)
+        {
+            MainWindow.change_selected(this);
+        }
+
         public abstract void for_each_child(Action<Generic_Element> lambda);
         public abstract void for_each_descendant(Action<Generic_Element> lambda); //Warning: May fire twice
         public abstract int get_el_type();
 
-        public abstract void print_el(Canvas canvas);
+        public abstract void print_el(ref Canvas canvas);
+        public abstract void print_cn(ref Canvas canvas);
     }
 }

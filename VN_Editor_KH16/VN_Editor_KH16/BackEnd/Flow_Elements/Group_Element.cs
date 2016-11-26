@@ -12,11 +12,13 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
     public class Group_Element : Generic_Element
     {
         public List<Generic_Element> outputs;
+        public List<Generic_Element> members;
         public Generic_Element interior_head;
 
         public Group_Element()
         {
             outputs = new List<Generic_Element>();
+            members = new List<Generic_Element>();
             interior_head = null;
         }
 
@@ -85,9 +87,12 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             return returnable;
         }
 
-        public void print (Canvas canvas)
+        public Canvas print (Canvas canvas)
         {
-
+            canvas.Children.Clear();
+            for_each_inside(d => d.print_cn(ref canvas));
+            for_each_inside(d => d.print_el(ref canvas));
+            return canvas;
         }
 
         public override void for_each_child(Action<Generic_Element> lambda)
@@ -107,18 +112,39 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             });
         }
 
-        public override void print_el(Canvas canvas)
+        public void for_each_inside (Action<Generic_Element> lambda)
+        {
+            if (interior_head != null)
+            {
+                lambda(interior_head);
+                interior_head.for_each_descendant(lambda);
+            }
+        }
+
+        public override void print_el(ref Canvas canvas)
         {
             Polygon pic = new Polygon();
-            pic.Fill = System.Windows.Media.Brushes.LightCyan;
-            pic.Stroke = System.Windows.Media.Brushes.LightCyan;
 
-            pic.Points.Add(new Point(embedding_location.X - 60, embedding_location.Y + 30));
-            pic.Points.Add(new Point(embedding_location.X + 60, embedding_location.Y + 30));
-            pic.Points.Add(new Point(embedding_location.X + 60, embedding_location.Y - 30));
-            pic.Points.Add(new Point(embedding_location.X - 60, embedding_location.Y - 30));
+            if (this == MainWindow.selected)
+                pic.Fill = System.Windows.Media.Brushes.LightYellow;
+            else
+                pic.Fill = System.Windows.Media.Brushes.LightCyan;
+
+            pic.Stroke = System.Windows.Media.Brushes.Black;
+
+            pic.Points.Add(new Point(embedding_location.X - 14, embedding_location.Y + 10));
+            pic.Points.Add(new Point(embedding_location.X + 14, embedding_location.Y + 10));
+            pic.Points.Add(new Point(embedding_location.X + 14, embedding_location.Y - 10));
+            pic.Points.Add(new Point(embedding_location.X - 14, embedding_location.Y - 10));
+
+            pic.MouseLeftButtonDown += new_selected;
 
             canvas.Children.Add(pic);
+        }
+
+        public override void print_cn(ref Canvas canvas)
+        {
+
         }
 
         public override int get_el_type()

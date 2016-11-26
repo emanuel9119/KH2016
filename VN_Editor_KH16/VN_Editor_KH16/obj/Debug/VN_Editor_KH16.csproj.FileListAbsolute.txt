@@ -47,3 +47,7 @@ C:\Users\Emanuel\Documents\kh2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Window
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\TreeViewer.g.cs
 C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\TreeViewer.baml
 >>>>>>> 553b32cb9d545a2ec0d34450eca93c7d8c5d410d
+C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\DataEditor.g.cs
+C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\FlowEditor.g.cs
+C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\DataEditor.baml
+C:\Users\skeli\Documents\KH2016\VN_Editor_KH16\VN_Editor_KH16\obj\Debug\Windows\FlowEditor.baml
