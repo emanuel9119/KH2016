@@ -27,8 +27,13 @@
                             <RowDefinition Height="26"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
+<<<<<<< HEAD
+                        <TextBox Grid.Row="0" Text="{Binding speaker}"/>
+                        <TextBox Grid.Row="1" MinWidth="300" HorizontalAlignment="Stretch" Text="{Binding dialogue}"/>
+=======
                         <TextBox Grid.Row="0" Text="{Binding speaker, Mode=TwoWay}"/>
                         <TextBox Grid.Row="1" MinWidth="50" HorizontalAlignment="Stretch" Text="{Binding dialogue, Mode=TwoWay}"/>
+>>>>>>> 8043bd8e67cc35b38ca31616cad3ab96b7f3f144
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
