@@ -1,0 +1,27 @@
+﻿<Window x:Class="GlobeTrotter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GlobeTrotter"
+        mc:Ignorable="d"
+        Title="Globe Workstation" Height="350" Width="525"
+        LocationChanged="Window_Moved"
+        SizeChanged="Window_Moved">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Windows">
+                    <MenuItem Header="_Animation Editor" Click="AnimMenuClicked"/>
+                </MenuItem>
+                <MenuItem Header="_Layout">
+                    <MenuItem Header="_Balanced" Click="Layout_Balanced"/>
+                    <MenuItem Header="_Scene Focused"/>
+                    <MenuItem Header="_Data Focused"/>
+                    <MenuItem Header="_Animation Focused"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
