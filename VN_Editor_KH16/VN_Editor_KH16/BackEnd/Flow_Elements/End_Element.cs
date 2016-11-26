@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
-    class Slide_Element : Generic_Element
+    public class End_Element : Generic_Element
     {
-        Generic_Element output;
+        Group_Element master;
+        int End_El_Num;
 
 
         public override void for_each_child(Action<Generic_Element> lambda)
         {
-            lambda(output);
+
         }
 
         public override void for_each_descendant(Action<Generic_Element> lambda)
         {
-            lambda(output);
-            output.for_each_descendant(lambda);
-        }
 
-        public string speaker  { get; set; }
-        public string dialogue { get; set; }
-        public string dev_note { get; set; }
+        }
     }
 }
