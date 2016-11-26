@@ -84,9 +84,6 @@
     <Compile Include="Windows\StoryEditor.xaml.cs">
       <DependentUpon>StoryEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AnimationEditor.xaml.cs">
-      <DependentUpon>AnimationEditor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\Child_Window.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -135,10 +132,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\StoryEditor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\AnimationEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
