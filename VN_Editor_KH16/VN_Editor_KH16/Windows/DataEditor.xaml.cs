@@ -27,11 +27,24 @@ namespace VN_Editor_KH16
         List<FrameworkElement> decision_forms = new List<FrameworkElement>();
         List<FrameworkElement> character_forms = new List<FrameworkElement>();
 
+        List<Canvas> canvii = new List<Canvas>();
+        int selected_sub = 0;
+
         public DataEditor()
         {
             InitializeComponent();
             is_docked = false;
             safe_destruction = false;
+
+            canvii.Add(c_1);
+            canvii.Add(c_2);
+            canvii.Add(c_3);
+            canvii.Add(c_4);
+            canvii.Add(c_5);
+            canvii.Add(c_6);
+            canvii.Add(c_7);
+            canvii.Add(c_8);
+            canvii.Add(c_9);
 
             MainWindow.new_selected_el += load_el;
             MainWindow.new_selected_as += load_as;
@@ -46,6 +59,7 @@ namespace VN_Editor_KH16
             decision_forms.Add(Choice_number);
 
             character_forms.Add(Picture_Holder);
+            character_forms.Add(Character_Name);
 
             close_all();
         }
@@ -54,10 +68,9 @@ namespace VN_Editor_KH16
         {
             OpenFileDialog load_image_dialog = new OpenFileDialog();
             if (load_image_dialog.ShowDialog() == true)
-            {
                 MainWindow.selected_ass.add_image(new BitmapImage(new Uri(load_image_dialog.FileName)));
-                c_1.Children.Add(MainWindow.selected_ass.images[0].img);
-            }
+
+            load_as();
         }
 
         public void close_all ()
@@ -85,10 +98,35 @@ namespace VN_Editor_KH16
         {
             close_all();
 
+            selected_sub = 0;
+
             if (MainWindow.selected_ass.asset_type() == 0)
             {
-                character_forms.ForEach(f => { f.Visibility = Visibility.Visible; });
+                refresh_char_screen();
             }
+        }
+
+        public void refresh_char_screen ()
+        {
+            character_forms.ForEach(f => { f.Visibility = Visibility.Visible; });
+            c_1.Children.Clear();
+            for (int i = 0; i < MainWindow.selected_ass.images.Count; i++)
+            {
+                Image img = new Image();
+                img.Source = MainWindow.selected_ass.images[i].img.Source;
+                img.MaxHeight = c_1.ActualHeight;
+                img.MaxWidth = c_1.ActualWidth;
+                img.HorizontalAlignment = HorizontalAlignment.Center;
+                img.VerticalAlignment = VerticalAlignment.Center;
+
+                if (i == selected_sub)
+                    canvii[i].Background = System.Windows.Media.Brushes.LightYellow;
+                else
+                    canvii[i].Background = System.Windows.Media.Brushes.Transparent;
+
+                canvii[i].Children.Add(img);
+            }
+            Character_Name.DataContext = MainWindow.selected_ass;
         }
 
         public void load_el ()
@@ -100,6 +138,7 @@ namespace VN_Editor_KH16
                 slide_forms.ForEach(f => { f.Visibility = Visibility.Visible; });
                 Speaker_Name.DataContext = ((Slide_Element)MainWindow.selected);
                 Speaker_Dialogue.DataContext = ((Slide_Element)MainWindow.selected);
+                Character_List.ItemsSource = ResourceEditor.characters;
             }
             if (MainWindow.selected.get_el_type() == 2)
             {
@@ -108,5 +147,15 @@ namespace VN_Editor_KH16
                 Choice_number.DataContext = ((Loud_Decision_Element)MainWindow.selected);
             }
         }
+
+        public void f1(object sender, EventArgs e) { selected_sub = 0; refresh_char_screen(); }
+        public void f2(object sender, EventArgs e) { if (MainWindow.selected_ass.images.Count > 0) selected_sub = 1; refresh_char_screen(); }
+        public void f3(object sender, EventArgs e) { if (MainWindow.selected_ass.images.Count > 1) selected_sub = 2; refresh_char_screen(); }
+        public void f4(object sender, EventArgs e) { if (MainWindow.selected_ass.images.Count > 2) selected_sub = 3; refresh_char_screen(); }
+        public void f5(object sender, EventArgs e) { if (MainWindow.selected_ass.images.Count > 3) selected_sub = 4; refresh_char_screen(); }
+        public void f6(object sender, EventArgs e) { if (MainWindow.selected_ass.images.Count > 4) selected_sub = 5; refresh_char_screen(); }
+        public void f7(object sender, EventArgs e) { if (MainWindow.selected_ass.images.Count > 5) selected_sub = 6; refresh_char_screen(); }
+        public void f8(object sender, EventArgs e) { if (MainWindow.selected_ass.images.Count > 6) selected_sub = 7; refresh_char_screen(); }
+        public void f9(object sender, EventArgs e) { if (MainWindow.selected_ass.images.Count > 7) selected_sub = 8; refresh_char_screen(); }
     }
 }

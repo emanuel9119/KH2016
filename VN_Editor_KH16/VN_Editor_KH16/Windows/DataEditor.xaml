@@ -40,7 +40,15 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button Name="Pic_Loader" Grid.Row="0" Grid.ColumnSpan="3" Click="Load_Image_Func"/>
-                <Canvas Name="c_1" Grid.Row="1" Grid.Column="0"/>
+                <Canvas Name="c_1" Grid.Row="1" Grid.Column="0" MouseLeftButtonDown="f1"/>
+                <Canvas Name="c_2" Grid.Row="1" Grid.Column="1" MouseLeftButtonDown="f2"/>
+                <Canvas Name="c_3" Grid.Row="1" Grid.Column="2" MouseLeftButtonDown="f3"/>
+                <Canvas Name="c_4" Grid.Row="2" Grid.Column="0" MouseLeftButtonDown="f4"/>
+                <Canvas Name="c_5" Grid.Row="2" Grid.Column="1" MouseLeftButtonDown="f5"/>
+                <Canvas Name="c_6" Grid.Row="2" Grid.Column="2" MouseLeftButtonDown="f6"/>
+                <Canvas Name="c_7" Grid.Row="3" Grid.Column="0" MouseLeftButtonDown="f7"/>
+                <Canvas Name="c_8" Grid.Row="3" Grid.Column="1" MouseLeftButtonDown="f8"/>
+                <Canvas Name="c_9" Grid.Row="3" Grid.Column="2" MouseLeftButtonDown="f9"/>
             </Grid>
             <Grid Grid.Row="0" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
@@ -70,6 +78,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+
+                <TextBox Name="Character_Name" Text="{Binding name, Mode=TwoWay}" Grid.Row="4" Grid.Column = "0"/>
 
                 <ListBox Name="Character_List" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="2">
                     <ListBox.ItemTemplate>
