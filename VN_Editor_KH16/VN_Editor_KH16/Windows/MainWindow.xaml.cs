@@ -46,6 +46,15 @@ namespace VN_Editor_KH16
             cw.Show();
         }
 
+        private void StoryHierClicked(object sender, EventArgs e)
+        {
+            TreeViewer cw = new TreeViewer();
+            cw.ShowInTaskbar = false;
+            cw.ResizeMode = ResizeMode.NoResize;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
+        }
+
         public void Layout_Balanced(object sender, EventArgs e)
         {
             docking_system.clear();

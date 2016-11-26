@@ -9,7 +9,7 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
     public class Slide_Element : Generic_Element
     {
-        Generic_Element output;
+        public Generic_Element output;
 
         public Slide_Element()
         {
@@ -45,7 +45,11 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
             do
             {
                 returnable.Add(curr);
-                if (curr.output.get_el_type() == 1 && curr.output.inputs.Count <= 1)
+                if (curr.output == null)
+                {
+                    new_head = null;
+                    curr = null;
+                }else if (curr.output.get_el_type() == 1 && curr.output.inputs.Count <= 1)
                     curr = (Slide_Element)curr.output;
                 else {
                     new_head = curr.output;

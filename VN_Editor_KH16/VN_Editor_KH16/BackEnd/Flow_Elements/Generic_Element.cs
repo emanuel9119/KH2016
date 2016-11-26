@@ -9,6 +9,8 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
     public abstract class Generic_Element
     {
+        public string dalet { get; set; } = "kek";
+
         public List<Generic_Element> inputs;
         public Point embedding_location;
 
