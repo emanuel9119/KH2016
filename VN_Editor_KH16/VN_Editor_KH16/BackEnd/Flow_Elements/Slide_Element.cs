@@ -9,10 +9,6 @@ namespace VN_Editor_KH16.BackEnd.Flow_Elements
 {
     public class Slide_Element : Generic_Element
     {
-<<<<<<< HEAD
-=======
-
->>>>>>> 22f9fa07339069b484aafce3d8546a9a98424c15
         Generic_Element output;
 
         public Slide_Element()
